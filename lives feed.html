@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>CAT ENTERTAINMENT SURGE - Live Feeds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* === UNIVERSAL DEVICE COMPATIBILITY === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #00C49A;
+            --dark: #0A0F1C;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        /* === HEADER === */
+        .feeds-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 15, 28, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+            z-index: 1000;
+            padding: 1rem 5%;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--primary);
+        }
+
+        .logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* === FEEDS CONTAINER === */
+        .feeds-container {
+            display: grid;
+            grid-template-columns: 300px 1fr 350px;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        @media (max-width: 1200px) {
+            .feeds-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-left, .sidebar-right {
+                display: none;
+            }
+        }
+
+        /* === LEFT SIDEBAR - FILTERS === */
+        .sidebar-left {
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .filter-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .filter-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: var(--gradient);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .trending-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateX(5px);
+        }
+
+        .trending-number {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            min-width: 30px;
+        }
+
+        .trending-content h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .trending-content p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* === MAIN FEEDS === */
+        .feeds-main {
+            min-height: 100vh;
+        }
+
+        .create-post {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .post-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--light);
+            font-size: 1rem;
+            padding: 1rem;
+            resize: none;
+            min-height: 100px;
+            font-family: inherit;
+        }
+
+        .post-input::placeholder {
+            color: var(--gray);
+        }
+
+        .post-input:focus {
+            outline: none;
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .media-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .media-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .media-btn:hover {
+            background: rgba(0, 196, 154, 0.1);
+            transform: scale(1.1);
+        }
+
+        .post-btn {
+            padding: 0.75rem 2rem;
+            background: var(--gradient);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .post-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* FEED ITEMS */
+        .feed-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feed-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feed-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .feed-user h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .feed-user span {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .feed-content {
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .feed-media {
+            margin: 1rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            max-height: 400px;
+        }
+
+        .feed-media img,
+        .feed-media video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .feed-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .feed-actions {
+            display: flex;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 0.75rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .action-btn.liked {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* === RIGHT SIDEBAR - LIVE EVENTS === */
+        .sidebar-right {
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .live-now {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 1rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .live-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .live-event {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .live-event:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+        }
+
+        .live-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 768px) {
+            .feeds-container {
+                padding: 1rem;
+                grid-template-columns: 1fr;
+            }
+            
+            .feeds-header {
+                padding: 1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .feed-item {
+                padding: 1rem;
+            }
+            
+            .post-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .media-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        /* === LOADING STATES === */
+        .loading-skeleton {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            animation: pulse-bg 1.5s infinite;
+        }
+
+        @keyframes pulse-bg {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .skeleton-line {
+            height: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .skeleton-line.short {
+            width: 60%;
+        }
+
+        .skeleton-line.medium {
+            width: 80%;
+        }
+
+        /* === NOTIFICATION BADGE === */
+        .notification-badge {
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 50%;
+            min-width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* === SEARCH BAR === */
+        .search-container {
+            position: relative;
+            width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                width: 100%;
+            }
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+
+        /* === AUTH BUTTON === */
+        .auth-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* === SCROLLBAR === */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--primary), #FF8B35);
+        }
+
+        /* === CATEGORY BADGES === */
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .category-badge.football {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .category-badge.music {
+            background: rgba(0, 196, 154, 0.1);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .category-badge.gaming {
+            background: rgba(0, 78, 137, 0.1);
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        /* === MODAL === */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: var(--dark);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: modalSlide 0.3s ease;
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="feeds-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>CES FEEDS</span>
+            </a>
+            
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search posts, events, users...">
+            </div>
+            
+            <div class="header-actions">
+                <a href="index.html" class="auth-btn">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <div class="notification-badge">
+                    <i class="fas fa-bell" style="font-size: 1.2rem; cursor: pointer;"></i>
+                    <span class="badge">3</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="feeds-container">
+        <!-- LEFT SIDEBAR - FILTERS -->
+        <aside class="sidebar-left">
+            <div class="filter-section">
+                <h3 class="filter-title">
+                    <i class="fas fa-filter"></i>
+                    Filter Content
+                </h3>
+                <div class="filter-tags">
+                    <span class="filter-tag active">All</span>
+                    <span class="filter-tag">Following</span>
+                    <span class="filter-tag">Trending</span>
+                    <span class="filter-tag">Live</span>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3 class="filter-title">
+                    <i class="fas fa-fire"></i>
+                    Trending Topics
+                </h3>
+                <ul class="trending-list">
+                    <li class="trending-item">
+                        <span class="trending-number">1</span>
+                        <div class="trending-content">
+                            <h4>Premier League Finals</h4>
+                            <p>1.2k posts • Live now</p>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <span class="trending-number">2</span>
+                        <div class="trending-content">
+                            <h4>#MusicFest2025</h4>
+                            <p>845 posts • Trending</p>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <span class="trending-number">3</span>
+                        <div class="trending-content">
+                            <h4>Esports Championship</h4>
+                            <p>720 posts • Hot</p>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <span class="trending-number">4</span>
+                        <div class="trending-content">
+                            <h4>AI Entertainment</h4>
+                            <p>512 posts • New</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3 class="filter-title">
+                    <i class="fas fa-hashtag"></i>
+                    Categories
+                </h3>
+                <div class="filter-tags">
+                    <span class="filter-tag category-badge football">⚽ Football</span>
+                    <span class="filter-tag category-badge music">🎵 Music</span>
+                    <span class="filter-tag category-badge gaming">🎮 Gaming</span>
+                    <span class="filter-tag">🎬 Movies</span>
+                    <span class="filter-tag">🤣 Comedy</span>
+                    <span class="filter-tag">🤖 Tech</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN FEEDS AREA -->
+        <main class="feeds-main">
+            <!-- CREATE POST -->
+            <div class="create-post">
+                <textarea class="post-input" placeholder="What's happening in the entertainment world? #CES2025"></textarea>
+                <div class="post-actions">
+                    <div class="media-buttons">
+                        <button class="media-btn" title="Add photo">
+                            <i class="fas fa-image"></i>
+                        </button>
+                        <button class="media-btn" title="Add video">
+                            <i class="fas fa-video"></i>
+                        </button>
+                        <button class="media-btn" title="Add GIF">
+                            <i class="fas fa-film"></i>
+                        </button>
+                        <button class="media-btn" title="Add poll">
+                            <i class="fas fa-chart-bar"></i>
+                        </button>
+                    </div>
+                    <button class="post-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Post
+                    </button>
+                </div>
+            </div>
+
+            <!-- FEEDS WILL BE LOADED HERE -->
+            <div id="feeds-container">
+                <!-- Feeds will be dynamically loaded here -->
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR - LIVE EVENTS -->
+        <aside class="sidebar-right">
+            <div class="live-now">
+                <div class="live-badge">LIVE NOW</div>
+                <h3 style="margin-bottom: 1rem;">🔥 Live Events</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem;">Join these events happening right now!</p>
+                
+                <div class="live-event">
+                    <div class="live-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div>
+                        <h4>Arsenal vs Chelsea</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">⚽ 15.2k viewers</p>
+                    </div>
+                </div>
+                
+                <div class="live-event">
+                    <div class="live-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div>
+                        <h4>Tomorrowland VR</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">🎵 8.7k viewers</p>
+                    </div>
+                </div>
+                
+                <div class="live-event">
+                    <div class="live-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div>
+                        <h4>Valorant Finals</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">🎮 22.4k viewers</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3 class="filter-title">
+                    <i class="fas fa-user-friends"></i>
+                    Who to Follow
+                </h3>
+                <div id="suggested-users">
+                    <!-- Suggested users will be loaded here -->
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3 class="filter-title">
+                    <i class="fas fa-calendar-alt"></i>
+                    Upcoming Events
+                </h3>
+                <div id="upcoming-events">
+                    <!-- Upcoming events will be loaded here -->
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- MODAL FOR MEDIA UPLOAD -->
+    <div class="modal-overlay" id="mediaModal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 1rem; color: var(--accent);">Upload Media</h3>
+            <div style="border: 2px dashed rgba(255,255,255,0.1); border-radius: 15px; padding: 3rem; text-align: center; margin: 1rem 0;">
+                <i class="fas fa-cloud-upload-alt" style="font-size: 3rem; color: var(--gray); margin-bottom: 1rem;"></i>
+                <p style="color: var(--gray);">Drag & drop images/videos or click to browse</p>
+            </div>
+            <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                <button class="action-btn" onclick="closeModal()">Cancel</button>
+                <button class="post-btn">Upload</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUPABASE SCRIPT -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        // Initialize Supabase
+        const supabaseUrl = 'https://bwvihhyxvmnagmdkaofg.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3dmloaHl4dm1uYWdtZGthb2ZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4MDQwMDMsImV4cCI6MjA4MTM4MDAwM30.Ed6Uvr3TmAHdfS-aB4ViGKc2UukJ0_xhcvK-h2XdLYo';
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        // Sample feeds data
+        const sampleFeeds = [
+            {
+                id: 1,
+                username: "FootballFanatic",
+                avatar: "F",
+                time: "2 min ago",
+                content: "Just witnessed the most incredible goal in Premier League history! 🚀⚽ #PremierLeague #Football #CES",
+                media: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                category: "football",
+                likes: 1245,
+                comments: 89,
+                shares: 45,
+                isLiked: false
+            },
+            {
+                id: 2,
+                username: "MusicMaestro",
+                avatar: "M",
+                time: "15 min ago",
+                content: "The AI-generated music at #CES2025 is mind-blowing! The future of music is here 🎵🤖",
+                media: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                category: "music",
+                likes: 876,
+                comments: 67,
+                shares: 32,
+                isLiked: true
+            },
+            {
+                id: 3,
+                username: "GamerPro",
+                avatar: "G",
+                time: "1 hour ago",
+                content: "Just qualified for the Valorant World Finals! The competition was intense but we made it! 🎮🏆 #Esports #Gaming #CES",
+                category: "gaming",
+                likes: 2100,
+                comments: 156,
+                shares: 89,
+                isLiked: false
+            },
+            {
+                id: 4,
+                username: "TechVisionary",
+                avatar: "T",
+                time: "3 hours ago",
+                content: "The VR concert experience at CAT ENTERTAINMENT SURGE is revolutionary. Felt like I was actually there! 🎤🕶️ #VR #Innovation",
+                category: "tech",
+                likes: 543,
+                comments: 42,
+                shares: 21,
+                isLiked: false
+            }
+        ];
+
+        // DOM Elements
+        const feedsContainer = document.getElementById('feeds-container');
+        const postInput = document.querySelector('.post-input');
+        const postBtn = document.querySelector('.post-btn');
+        const searchInput = document.querySelector('.search-input');
+        const mediaButtons = document.querySelectorAll('.media-btn');
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const actionButtons = document.querySelectorAll('.action-btn');
+
+        // Initialize feeds
+        function loadFeeds() {
+            feedsContainer.innerHTML = '';
+            
+            // Show loading skeleton
+            for (let i = 0; i < 3; i++) {
+                feedsContainer.innerHTML += `
+                    <div class="loading-skeleton">
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-line medium"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                `;
+            }
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                feedsContainer.innerHTML = '';
+                sampleFeeds.forEach(feed => {
+                    createFeedElement(feed);
+                });
+            }, 1000);
+        }
+
+        // Create feed element
+        function createFeedElement(feed) {
+            const feedElement = document.createElement('div');
+            feedElement.className = 'feed-item';
+            feedElement.innerHTML = `
+                <div class="feed-header">
+                    <div class="feed-avatar" style="background: ${getAvatarColor(feed.avatar)}">
+                        ${feed.avatar}
+                    </div>
+                    <div class="feed-user">
+                        <h3>${feed.username}</h3>
+                        <span>${feed.time} • <span class="category-badge ${feed.category}">${getCategoryIcon(feed.category)} ${feed.category.charAt(0).toUpperCase() + feed.category.slice(1)}</span></span>
+                    </div>
+                </div>
+                
+                <div class="feed-content">
+                    ${feed.content}
+                </div>
+                
+                ${feed.media ? `
+                <div class="feed-media">
+                    <img src="${feed.media}" alt="Post media" loading="lazy">
+                </div>
+                ` : ''}
+                
+                <div class="feed-stats">
+                    <span><i class="fas fa-heart"></i> ${formatNumber(feed.likes)}</span>
+                    <span><i class="fas fa-comment"></i> ${feed.comments}</span>
+                    <span><i class="fas fa-share"></i> ${feed.shares}</span>
+                </div>
+                
+                <div class="feed-actions">
+                    <button class="action-btn ${feed.isLiked ? 'liked' : ''}" onclick="toggleLike(${feed.id})">
+                        <i class="fas fa-heart"></i>
+                        Like
+                    </button>
+                    <button class="action-btn" onclick="commentOnPost(${feed.id})">
+                        <i class="fas fa-comment"></i>
+                        Comment
+                    </button>
+                    <button class="action-btn" onclick="sharePost(${feed.id})">
+                        <i class="fas fa-share"></i>
+                        Share
+                    </button>
+                </div>
+            `;
+            
+            feedsContainer.appendChild(feedElement);
+        }
+
+        // Helper functions
+        function getAvatarColor(letter) {
+            const colors = [
+                'linear-gradient(135deg, #FF6B35, #00C49A)',
+                'linear-gradient(135deg, #004E89, #FF6B35)',
+                'linear-gradient(135deg, #00C49A, #004E89)',
+                'linear-gradient(135deg, #FF6B35, #8B5CF6)'
+            ];
+            return colors[letter.charCodeAt(0) % colors.length];
+        }
+
+        function getCategoryIcon(category) {
+            const icons = {
+                football: '⚽',
+                music: '🎵',
+                gaming: '🎮',
+                tech: '🤖'
+            };
+            return icons[category] || '📝';
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'k';
+            }
+            return num;
+        }
+
+        // Event handlers
+        function toggleLike(feedId) {
+            const feed = sampleFeeds.find(f => f.id === feedId);
+            if (feed) {
+                feed.isLiked = !feed.isLiked;
+                feed.likes += feed.isLiked ? 1 : -1;
+                loadFeeds();
+            }
+        }
+
+        function commentOnPost(feedId) {
+            const comment = prompt('Enter your comment:');
+            if (comment) {
+                alert('Comment posted!');
+                // Here you would typically send to Supabase
+            }
+        }
+
+        function sharePost(feedId) {
+            const feed = sampleFeeds.find(f => f.id === feedId);
+            if (navigator.share) {
+                navigator.share({
+                    title: `Post by ${feed.username}`,
+                    text: feed.content.substring(0, 100) + '...',
+                    url: window.location.href
+                });
+            } else {
+                alert('Post shared to clipboard!');
+            }
+        }
+
+        // Post new content
+        postBtn.addEventListener('click', async () => {
+            const content = postInput.value.trim();
+            if (!content) {
+                alert('Please write something to post!');
+                return;
+            }
+
+            // Create new post object
+            const newPost = {
+                id: sampleFeeds.length + 1,
+                username: "CurrentUser",
+                avatar: "C",
+                time: "Just now",
+                content: content,
+                category: "general",
+                likes: 0,
+                comments: 0,
+                shares: 0,
+                isLiked: false
+            };
+
+            // Add to beginning of feeds
+            sampleFeeds.unshift(newPost);
+            
+            // Clear input
+            postInput.value = '';
+            
+            // Reload feeds
+            loadFeeds();
+            
+            // Show success message
+            alert('Post published successfully!');
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            if (searchTerm) {
+                const filtered = sampleFeeds.filter(feed => 
+                    feed.content.toLowerCase().includes(searchTerm) ||
+                    feed.username.toLowerCase().includes(searchTerm)
+                );
+                
+                feedsContainer.innerHTML = '';
+                filtered.forEach(feed => createFeedElement(feed));
+            } else {
+                loadFeeds();
+            }
+        });
+
+        // Filter tags
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', function() {
+                filterTags.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.textContent.toLowerCase();
+                if (filter === 'all') {
+                    loadFeeds();
+                } else {
+                    const filtered = sampleFeeds.filter(feed => 
+                        feed.category === filter ||
+                        feed.content.toLowerCase().includes(filter)
+                    );
+                    
+                    feedsContainer.innerHTML = '';
+                    filtered.forEach(feed => createFeedElement(feed));
+                }
+            });
+        });
+
+        // Media buttons
+        mediaButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('mediaModal').style.display = 'flex';
+            });
+        });
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('mediaModal').style.display = 'none';
+        }
+
+        // Load initial feeds
+        loadFeeds();
+
+        // Load suggested users from Supabase
+        async function loadSuggestedUsers() {
+            try {
+                const { data: users, error } = await supabase
+                    .from('users')
+                    .select('username, subscription_tier')
+                    .limit(5);
+                
+                if (!error && users) {
+                    const container = document.getElementById('suggested-users');
+                    users.forEach(user => {
+                        const userElement = document.createElement('div');
+                        userElement.className = 'live-event';
+                        userElement.innerHTML = `
+                            <div class="live-icon" style="background: ${getAvatarColor(user.username[0])}">
+                                ${user.username[0]}
+                            </div>
+                            <div>
+                                <h4>${user.username}</h4>
+                                <p style="color: var(--gray); font-size: 0.9rem;">${user.subscription_tier} Member</p>
+                            </div>
+                            <button style="margin-left: auto; padding: 0.5rem 1rem; background: transparent; border: 1px solid var(--accent); border-radius: 10px; color: var(--accent); cursor: pointer;">
+                                Follow
+                            </button>
+                        `;
+                        container.appendChild(userElement);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading users:', error);
+            }
+        }
+
+        // Load upcoming events from Supabase
+        async function loadUpcomingEvents() {
+            try {
+                const { data: events, error } = await supabase
+                    .from('events')
+                    .select('*')
+                    .order('start_time', { ascending: true })
+                    .limit(3);
+                
+                if (!error && events) {
+                    const container = document.getElementById('upcoming-events');
+                    events.forEach(event => {
+                        const eventElement = document.createElement('div');
+                        eventElement.className = 'trending-item';
+                        eventElement.innerHTML = `
+                            <div style="width: 40px; height: 40px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                            <div>
+                                <h4>${event.title}</h4>
+                                <p style="color: var(--gray); font-size: 0.85rem;">
+                                    ${new Date(event.start_time).toLocaleDateString()} • ${event.category}
+                                </p>
+                            </div>
+                        `;
+                        container.appendChild(eventElement);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading events:', error);
+            }
+        }
+
+        // Load dynamic content
+        loadSuggestedUsers();
+        loadUpcomingEvents();
+
+        // Real-time updates for new posts
+        const channel = supabase
+            .channel('feeds-channel')
+            .on('postgres_changes', 
+                { event: 'INSERT', schema: 'public', table: 'posts' }, 
+                (payload) => {
+                    console.log('New post:', payload.new);
+                    // You would add the new post to the feed here
+                }
+            )
+            .subscribe();
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Enter' && postInput === document.activeElement) {
+                postBtn.click();
+            }
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
