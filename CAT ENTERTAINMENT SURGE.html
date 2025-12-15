@@ -1,0 +1,2992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>CAT ENTERTAINMENT SURGE - The 2025 Frat Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* === UNIVERSAL DEVICE COMPATIBILITY === */
+        /* 1. Reset for all devices */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        /* 2. Base variables - adaptable to all screens */
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #00C49A;
+            --dark: #0A0F1C;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --mtn-yellow: #FFCC00;
+            --airtel-red: #E40046;
+            --mastercard-red: #EB001B;
+            --mastercard-yellow: #F79E1B;
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-left: env(safe-area-inset-left, 0px);
+            --safe-right: env(safe-area-inset-right, 0px);
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --gradient-reverse: linear-gradient(135deg, var(--accent), var(--primary));
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-base: clamp(16px, 2.5vw, 18px);
+        }
+
+        /* 3. Core HTML elements */
+        html {
+            font-size: var(--font-base);
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            width: 100%;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-left: var(--safe-left);
+            padding-right: var(--safe-right);
+        }
+
+        /* 4. Container system */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 max(4vw, 16px);
+            margin: 0 auto;
+        }
+
+        /* === TYPOGRAPHY === */
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 6vw, 2.8rem);
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-top: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: min(100px, 20vw);
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            margin-bottom: 3rem;
+            max-width: min(90vw, 700px);
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 5vw;
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: min(4vw, 18px) min(8vw, 35px);
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: clamp(0.95rem, 3vw, 1rem);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            min-height: 44px;
+            min-width: 44px;
+            text-align: center;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            position: relative;
+            overflow: hidden;
+            gap: 8px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover, .btn:active {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover, .btn-outline:active {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-sm {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            min-height: 36px;
+            min-width: 36px;
+        }
+
+        /* === PAYMENT BUTTONS === */
+        .btn-mtn {
+            background: linear-gradient(135deg, #FFCC00, #FF9900);
+            color: #000;
+        }
+
+        .btn-airtel {
+            background: linear-gradient(135deg, #E40046, #C4003A);
+            color: white;
+        }
+
+        .btn-mastercard {
+            background: linear-gradient(135deg, #EB001B, #F79E1B);
+            color: white;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .payment-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 120px;
+        }
+
+        .payment-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mtn-icon {
+            color: var(--mtn-yellow);
+        }
+
+        .airtel-icon {
+            color: var(--airtel-red);
+        }
+
+        .mastercard-icon {
+            background: linear-gradient(45deg, var(--mastercard-red), var(--mastercard-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* === HEADER === */
+        header {
+            position: fixed;
+            top: var(--safe-top);
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: min(3vw, 20px) 0;
+            transition: var(--transition);
+            background-color: rgba(10, 15, 28, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        header.scrolled {
+            padding: min(2.5vw, 15px) 0;
+            box-shadow: var(--shadow);
+            background-color: rgba(10, 15, 28, 0.99);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: clamp(1.3rem, 5vw, 2rem);
+            font-weight: 900;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            color: var(--primary);
+            margin-right: min(2vw, 10px);
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            transition: var(--transition);
+        }
+
+        .logo:hover i {
+            color: var(--accent);
+        }
+
+        .logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        /* Desktop Navigation */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: min(3vw, 25px);
+        }
+
+        .nav-links li {
+            display: inline-block;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light);
+            background: none;
+            border: none;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+            transition: var(--transition);
+            border-radius: 8px;
+        }
+
+        .mobile-toggle:hover {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: calc(60px + var(--safe-top));
+            left: 0;
+            width: 100%;
+            background: rgba(10, 15, 28, 0.99);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: min(5vw, 30px);
+            display: none;
+            flex-direction: column;
+            z-index: 999;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: calc(100vh - 60px - var(--safe-top));
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mobile-nav li {
+            margin: 0;
+            width: 100%;
+        }
+
+        .mobile-nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            padding: min(4vw, 18px) min(5vw, 20px);
+            display: block;
+            transition: var(--transition);
+            border-radius: 10px;
+            margin-bottom: 5px;
+            border: 1px solid transparent;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .mobile-nav a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 0;
+            background: var(--gradient);
+            border-radius: 0 4px 4px 0;
+            transition: var(--transition);
+        }
+
+        .mobile-nav a:hover::before,
+        .mobile-nav a:active::before {
+            height: 60%;
+        }
+
+        .mobile-nav a:hover, .mobile-nav a:active {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 107, 53, 0.3);
+            color: var(--primary);
+            padding-left: min(8vw, 30px);
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(10, 15, 28, 0.9), rgba(10, 15, 28, 0.7)), 
+                        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            padding-top: calc(80px + var(--safe-top));
+            padding-bottom: var(--safe-bottom);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 196, 154, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            width: 100%;
+            text-align: center;
+            padding: 0 5vw;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 9vw, 4rem);
+            margin-bottom: min(5vw, 25px);
+            line-height: 1.1;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 .surge {
+            display: block;
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 3s ease infinite;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin-top: min(3vw, 15px);
+            position: relative;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            margin-bottom: min(8vw, 40px);
+            color: rgba(255, 255, 255, 0.9);
+            max-width: min(90vw, 800px);
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 5vw;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: min(4vw, 20px);
+            flex-wrap: wrap;
+            padding: 0 5vw;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: clamp(2rem, 5vw, 4rem);
+            margin-top: clamp(3rem, 8vw, 5rem);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: var(--gray);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* === SECTIONS COMMON STYLES === */
+        section {
+            padding: clamp(3rem, 10vw, 5rem) 0;
+            width: 100%;
+            position: relative;
+        }
+
+        /* === ABOUT SECTION === */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(2rem, 6vw, 3rem);
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-text h3 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: min(4vw, 20px);
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-text h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .about-text p {
+            margin-bottom: min(4vw, 20px);
+            font-size: clamp(1rem, 3vw, 1.1rem);
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: min(5vw, 30px);
+        }
+
+        .about-features li {
+            margin-bottom: min(3vw, 15px);
+            display: flex;
+            align-items: flex-start;
+            font-size: clamp(0.95rem, 3vw, 1rem);
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .about-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: var(--gradient);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .about-features li:hover::before {
+            height: 80%;
+        }
+
+        .about-features i {
+            color: var(--primary);
+            margin-right: min(3vw, 15px);
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: var(--transition);
+        }
+
+        .about-features li:hover i {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: clamp(10px, 3vw, 20px);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+            z-index: 1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .about-image:hover::before {
+            opacity: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: clamp(10px, 3vw, 20px);
+            transition: var(--transition);
+            display: block;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* === CAT TECH SECTION === */
+        .cat-tech {
+            background: linear-gradient(rgba(10, 15, 28, 0.95), rgba(10, 15, 28, 0.98));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cat-tech::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(255, 107, 53, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 90%, rgba(0, 196, 154, 0.05) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 90vw), 1fr));
+            gap: clamp(1rem, 4vw, 1.5rem);
+            margin-top: clamp(2rem, 6vw, 3rem);
+            width: 100%;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: clamp(10px, 3vw, 15px);
+            padding: clamp(1.5rem, 5vw, 2rem);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(0, 196, 154, 0.3);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tech-icon {
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            transition: var(--transition);
+        }
+
+        .tech-card:hover .tech-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .tech-card h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: clamp(0.8rem, 2.5vw, 1rem);
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .tech-card:hover h3 {
+            color: var(--accent);
+        }
+
+        .tech-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        /* === ENTERTAINMENT SECTION === */
+        .entertainment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(300px, 90vw), 1fr));
+            gap: clamp(1rem, 4vw, 1.5rem);
+            margin-top: clamp(2rem, 6vw, 3rem);
+            width: 100%;
+        }
+
+        .entertainment-card {
+            border-radius: clamp(10px, 3vw, 15px);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            height: min(300px, 70vw);
+            width: 100%;
+            background: var(--dark);
+        }
+
+        .entertainment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+            z-index: 1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .entertainment-card:hover::before {
+            opacity: 1;
+        }
+
+        .entertainment-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .entertainment-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            display: block;
+            filter: brightness(0.9);
+        }
+
+        .entertainment-card:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: clamp(1rem, 4vw, 1.5rem);
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            color: white;
+            z-index: 2;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .entertainment-card:hover .card-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .card-overlay h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: clamp(0.5rem, 1.5vw, 0.8rem);
+            color: var(--light);
+        }
+
+        .card-overlay p {
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .card-link::after {
+            content: '→';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            color: var(--primary);
+            padding-right: 25px;
+        }
+
+        /* === SUBSCRIPTION SECTION === */
+        .subscription {
+            background: linear-gradient(135deg, var(--secondary), #001F3F);
+            text-align: center;
+            padding: clamp(3rem, 10vw, 5rem) 5vw;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subscription::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(0, 196, 154, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .subscription .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .subscription-form {
+            max-width: min(90vw, 600px);
+            margin: clamp(2rem, 6vw, 3rem) auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem, 3vw, 1.5rem);
+            width: 100%;
+            position: relative;
+        }
+
+        @media (min-width: 640px) {
+            .subscription-form {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .subscription-form input {
+            flex-grow: 1;
+            padding: clamp(1rem, 3vw, 1.2rem) clamp(1.2rem, 4vw, 1.5rem);
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            min-height: 50px;
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            transition: var(--transition);
+        }
+
+        .subscription-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .subscription-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(0, 196, 154, 0.2);
+        }
+
+        .subscription-features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 3vw, 1.5rem);
+            margin-top: clamp(2rem, 6vw, 3rem);
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: min(2vw, 10px);
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            padding: 0.8rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .feature:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .feature i {
+            color: var(--accent);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            transition: var(--transition);
+        }
+
+        .feature:hover i {
+            transform: scale(1.2);
+        }
+
+        /* === PRICING PLANS === */
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 90vw), 1fr));
+            gap: clamp(1.5rem, 4vw, 2rem);
+            margin-top: clamp(2rem, 6vw, 3rem);
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: clamp(15px, 4vw, 20px);
+            padding: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--accent);
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 196, 154, 0.2);
+        }
+
+        .pricing-card.popular::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.popular:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .plan-name {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .plan-price {
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .plan-features li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .plan-features i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        /* === PAYMENT SECTION === */
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 90vw), 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .payment-option {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .payment-option:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .payment-number {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+
+        /* === CONTACT SECTION === */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(2rem, 6vw, 3rem);
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .contact-container {
+                grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(1rem, 3vw, 1.5rem);
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: clamp(10px, 3vw, 15px);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 107, 53, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: clamp(50px, 12vw, 60px);
+            height: clamp(50px, 12vw, 60px);
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .contact-text h3 {
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            margin-bottom: 0.3rem;
+            color: var(--light);
+        }
+
+        .contact-text p {
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.03);
+            padding: clamp(2rem, 5vw, 3rem);
+            border-radius: clamp(15px, 4vw, 20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: clamp(1rem, 3vw, 1.2rem) clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            border: none;
+            border-radius: clamp(10px, 3vw, 15px);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(0, 196, 154, 0.2);
+        }
+
+        .contact-form textarea {
+            min-height: clamp(150px, 40vw, 200px);
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        /* === TEAM SECTION === */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(250px, 90vw), 1fr));
+            gap: clamp(1.5rem, 4vw, 2rem);
+            margin-top: clamp(2rem, 6vw, 3rem);
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: clamp(15px, 4vw, 20px);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 3px solid var(--gradient);
+            padding: 3px;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .member-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .member-info p {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* === AI CHATBOT === */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: max(20px, var(--safe-bottom));
+            right: max(15px, var(--safe-right));
+            width: clamp(60px, 15vw, 70px);
+            height: clamp(60px, 15vw, 70px);
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            z-index: 9999;
+            transition: var(--transition);
+            border: none;
+            padding: 0;
+            min-width: 60px;
+            min-height: 60px;
+            touch-action: manipulation;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 107, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+
+        .chatbot-toggle:hover, .chatbot-toggle:active {
+            transform: scale(1.1) rotate(10deg);
+            animation: none;
+        }
+
+        .chatbot-toggle i {
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            color: white;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: max(100px, calc(70px + var(--safe-bottom)));
+            right: max(15px, var(--safe-right));
+            width: min(400px, 90vw);
+            height: min(600px, 70vh);
+            max-height: calc(100vh - 150px);
+            background: white;
+            border-radius: clamp(15px, 4vw, 20px);
+            box-shadow: var(--shadow-lg);
+            z-index: 10000;
+            overflow: hidden;
+            display: none;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-header {
+            background: var(--gradient);
+            padding: clamp(1rem, 3vw, 1.2rem);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .chatbot-header h3 {
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-chatbot {
+            background: none;
+            border: none;
+            color: white;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            cursor: pointer;
+            transition: var(--transition);
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            touch-action: manipulation;
+            border-radius: 50%;
+        }
+
+        .close-chatbot:hover {
+            transform: rotate(90deg);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .chatbot-frame {
+            width: 100%;
+            height: calc(100% - 60px);
+            border: none;
+            display: block;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: #050913;
+            padding: clamp(3rem, 8vw, 4rem) 0 clamp(1.5rem, 4vw, 2rem);
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(2rem, 5vw, 3rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            }
+        }
+
+        .footer-about, .footer-links, .footer-social {
+            width: 100%;
+        }
+
+        .footer-logo {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links h4,
+        .footer-social h4 {
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links h4::after,
+        .footer-social h4::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: var(--gradient);
+            bottom: -8px;
+            left: 0;
+            border-radius: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            display: inline-block;
+            padding: 2px 0;
+            position: relative;
+        }
+
+        .footer-links a::before {
+            content: '›';
+            position: absolute;
+            left: -15px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 15px;
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: clamp(0.8rem, 2.5vw, 1.2rem);
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            width: clamp(45px, 10vw, 50px);
+            height: clamp(45px, 10vw, 50px);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            transition: var(--transition);
+            text-decoration: none;
+            min-width: 45px;
+            min-height: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icons a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .social-icons a:hover::before {
+            left: 100%;
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: clamp(1.5rem, 4vw, 2rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            width: 100%;
+        }
+
+        /* === FEATURES SECTION === */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 90vw), 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* === LOADING ANIMATION === */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* === SCROLL PROGRESS === */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient);
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* === RESPONSIVE BREAKPOINTS === */
+        @media (max-width: 575.98px) {
+            .logo span {
+                display: none;
+            }
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-btns .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+            .stats {
+                gap: 1.5rem;
+            }
+            .subscription-features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .payment-methods {
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .mobile-toggle {
+                display: none;
+            }
+            .nav-links {
+                display: flex;
+            }
+            .mobile-nav {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1400px;
+            }
+        }
+
+        /* === ACCESSIBILITY === */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* === CUSTOM SCROLLBAR === */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(10, 15, 28, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--primary), #FF8B35);
+        }
+
+        /* === TOUCH-FRIENDLY TARGETS === */
+        a, button, input, .btn, .card-link {
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        /* === ORIENTATION SUPPORT === */
+        @media (orientation: landscape) {
+            .hero {
+                min-height: 120vh;
+            }
+        }
+
+        /* === HIGH DPI SCREENS === */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+
+        /* === DARK MODE SUPPORT === */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --dark: #0A0F1C;
+                --light: #F8F9FA;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --dark: #F8F9FA;
+                --light: #0A0F1C;
+            }
+            body {
+                background: #F8F9FA;
+                color: #0A0F1C;
+            }
+        }
+
+        /* === PRINT STYLES === */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                color: black;
+                background: white;
+            }
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-paw"></i>
+                <span>CAT ENTERTAINMENT SURGE</span>
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks" role="navigation" aria-label="Main navigation">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#cat-tech">CAT TECH</a></li>
+                <li><a href="#entertainment">Entertainment</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#subscription">Subscription</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#chatbotToggle" onclick="document.getElementById('chatbotToggle').click(); return false;">Cat Talkie</a></li>
+            </ul>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <ul class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#cat-tech">CAT TECH</a></li>
+            <li><a href="#entertainment">Entertainment</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#subscription">Subscription</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#chatbotToggle" onclick="document.getElementById('chatbotToggle').click(); return false;">Cat Talkie</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-label="Welcome to CAT ENTERTAINMENT SURGE">
+        <div class="container hero-content">
+            <h1>WELCOME TO <span class="surge">CAT ENTERTAINMENT SURGE</span></h1>
+            <p>The ultimate 2025 frat experience blending cutting-edge technology with non-stop entertainment. Football, music, videos, games, and everything that makes people happy, all in one explosive platform.</p>
+            <div class="hero-btns">
+                <a href="#subscription" class="btn" aria-label="Join The Surge membership">Join The Surge</a>
+                <a href="#entertainment" class="btn btn-outline" aria-label="Explore entertainment content">Explore Content</a>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="50">0</span>
+                    <span class="stat-label">Active Events</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="1000">0</span>
+                    <span class="stat-label">Happy Users</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="24">0</span>
+                    <span class="stat-label">/7 Support</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="2025">0</span>
+                    <span class="stat-label">Future Ready</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" aria-labelledby="about-title">
+        <div class="container">
+            <h2 class="section-title" id="about-title">About CES</h2>
+            <p class="section-subtitle">Discover the revolution in entertainment technology that's taking 2025 by storm</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Redefining Entertainment Since 2025</h3>
+                    <p>CAT ENTERTAINMENT SURGE (CES) is not just another platform—it's a cultural movement. Born from the vibrant energy of college campuses and the relentless innovation of tech visionaries, we've created a space where technology meets pure, unadulterated fun.</p>
+                    <p>Our mission is simple: to deliver happiness through seamless integration of sports, music, gaming, and social connection. We leverage cutting-edge AI and immersive technologies to create experiences that resonate with the heartbeat of Generation Z and beyond.</p>
+                    
+                    <ul class="about-features" role="list">
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <span>Next-generation entertainment platform</span></li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <span>AI-powered personalized experiences</span></li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <span>Real-time sports and music integration</span></li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <span>Community-driven content creation</span></li>
+                    </ul>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://pikaso.cdnpk.net/private/production/2871617030/upload.png?preview=true&token=exp=1765879421~hmac=375080dcfd785deabe489ff5152ef276bd3154d4e8bfed44fca10d238b3b25ba&size=300" alt="CAT ENTERTAINMENT SURGE Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAT TECH Section -->
+    <section id="cat-tech" class="cat-tech" aria-labelledby="cat-tech-title">
+        <div class="container">
+            <h2 class="section-title" id="cat-tech-title">CAT TECH</h2>
+            <p class="section-subtitle">Our proprietary technology stack that powers the ultimate entertainment experience</p>
+            
+            <div class="tech-categories" role="list">
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-futbol" aria-hidden="true"></i>
+                    </div>
+                    <h3>Football Hub</h3>
+                    <p>Live matches, stats, fantasy leagues, and immersive VR experiences. Never miss a moment of the action with our real-time streaming and interactive features.</p>
+                    <button class="btn btn-sm btn-outline" onclick="openPage('https://www.premierleague.com/')">
+                        Watch Now
+                    </button>
+                </div>
+                
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-music" aria-hidden="true"></i>
+                    </div>
+                    <h3>Music Surge</h3>
+                    <p>Curated playlists, live concerts, artist exclusives, and AI-generated beats. Your personal soundtrack for every moment, mood, and occasion.</p>
+                    <button class="btn btn-sm btn-outline" onclick="openPage('https://www.spotify.com/')">
+                        Play Now
+                    </button>
+                </div>
+                
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-video" aria-hidden="true"></i>
+                    </div>
+                    <h3>Video & Photos</h3>
+                    <p>Short-form content, documentaries, user-generated media, and AI-enhanced editing tools. Create and consume visual stories like never before.</p>
+                    <button class="btn btn-sm btn-outline" onclick="openPage('https://www.pexels.com/videos/')">
+                        Watch Now
+                    </button>
+                </div>
+                
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-gamepad" aria-hidden="true"></i>
+                    </div>
+                    <h3>Gaming Arena</h3>
+                    <p>Cloud gaming, esports tournaments, indie showcases, and social gaming experiences. Play, compete, and connect in our virtual playgrounds.</p>
+                    <button class="btn btn-sm btn-outline" onclick="openPage('https://store.steampowered.com/')">
+                        Play Now
+                    </button>
+                </div>
+                
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-happy" aria-hidden="true"></i>
+                    </div>
+                    <h3>Happiness Engine</h3>
+                    <p>AI-driven mood detection and content recommendation system that learns what makes you smile and delivers more of it, exactly when you need it.</p>
+                    <button class="btn btn-sm btn-outline" onclick="openChatbot()">
+                        Try Now
+                    </button>
+                </div>
+                
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                    </div>
+                    <h3>Social Fusion</h3>
+                    <p>Integrated social features, group watch parties, collaborative playlists, and community challenges. Entertainment is better together.</p>
+                    <button class="btn btn-sm btn-outline" onclick="openPage('https://discord.com/')">
+                        Join Community
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" aria-labelledby="features-title">
+        <div class="container">
+            <h2 class="section-title" id="features-title">Why Choose CES</h2>
+            <p class="section-subtitle">Experience the future of entertainment with our unique features</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Ultra-low latency streaming and instant content delivery</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Powered</h3>
+                    <p>Smart recommendations and personalized experiences</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Access</h3>
+                    <p>Available worldwide with multi-language support</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Private</h3>
+                    <p>End-to-end encryption and privacy protection</p>
+                </div>
+                      
+                
+                    <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cat tech"></i>
+                    </div>
+                    <h3>CAT TECH</h3>
+                    <p>Meet the CAT TECH system</p>
+                   <button class="btn btn-sm btn-outline" onclick="openPage('https://ph462.github.io/AI-BOTS/')">
+                        JOIN NOW
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entertainment Section -->
+    <section id="entertainment" aria-labelledby="entertainment-title">
+        <div class="container">
+            <h2 class="section-title" id="entertainment-title">Entertainment Hub</h2>
+            <p class="section-subtitle">Your daily dose of happiness across all media formats</p>
+            
+            <div class="entertainment-grid" role="list">
+                <div class="entertainment-card" role="listitem">
+                    <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Football stadium with cheering crowd">
+                    <div class="card-overlay">
+                        <h3>Live Sports</h3>
+                        <p>Premier League, Champions League, and exclusive college tournaments</p>
+                        <button class="card-link" onclick="openPage('https://www.youtube.com/live/jzOTIIh6i7M?si=uWIdc1wue7_7Hwwy')">Watch Live</button>
+                    </div>
+                </div>
+                
+                <div class="entertainment-card" role="listitem">
+                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Music festival with crowd and lights">
+                    <div class="card-overlay">
+                        <h3>Concerts & Festivals</h3>
+                        <p>Front row access to the hottest music events worldwide</p>
+                        <button class="card-link" onclick="openPage('https://www.youtube.com/live/0rTjLHYZ5rQ?si=KEtZZXcG7I81PmJ6')">Join Now</button>
+                    </div>
+                </div>
+                
+                <div class="entertainment-card" role="listitem">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Esports gaming setup">
+                    <div class="card-overlay">
+                        <h3>Esports Battles</h3>
+                        <p>Watch pros compete or join the action yourself</p>
+                        <button class="card-link" onclick="openPage('https://www.twitch.tv/directory/game/Valorant')">Compete Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section with MTN/Airtel Payments -->
+    <section id="pricing" aria-labelledby="pricing-title">
+        <div class="container">
+            <h2 class="section-title" id="pricing-title">Choose Your Plan</h2>
+            <p class="section-subtitle">Select the perfect membership for your entertainment needs</p>
+            
+            <div class="pricing-plans">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Basic</h3>
+                    <div class="plan-price">₵25<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Basic Content Access</li>
+                        <li><i class="fas fa-check"></i> 720p Streaming</li>
+                        <li><i class="fas fa-check"></i> 1 Device</li>
+                        <li><i class="fas fa-times"></i> Live Events</li>
+                        <li><i class="fas fa-times"></i> AI Assistant</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="showPaymentOptions('Basic', 25)">Get Started</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <h3 class="plan-name">Pro</h3>
+                    <div class="plan-price">₵50<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Full Content Access</li>
+                        <li><i class="fas fa-check"></i> 4K Streaming</li>
+                        <li><i class="fas fa-check"></i> 3 Devices</li>
+                        <li><i class="fas fa-check"></i> Live Events</li>
+                        <li><i class="fas fa-check"></i> Basic AI Assistant</li>
+                    </ul>
+                    <button class="btn" onclick="showPaymentOptions('Pro', 50)">Get Started</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="plan-name">Ultimate</h3>
+                    <div class="plan-price">₵100<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Premium Everything</li>
+                        <li><i class="fas fa-check"></i> 8K Streaming</li>
+                        <li><i class="fas fa-check"></i> Unlimited Devices</li>
+                        <li><i class="fas fa-check"></i> VIP Event Access</li>
+                        <li><i class="fas fa-check"></i> Advanced AI Assistant</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="showPaymentOptions('Ultimate', 100)">Get Started</button>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fas fa-mobile-alt payment-icon mtn-icon"></i>
+                    <span>MTN Mobile Money</span>
+                </div>
+                <div class="payment-method">
+                    <i class="fas fa-sim-card payment-icon airtel-icon"></i>
+                    <span>Airtel Money</span>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-mastercard payment-icon mastercard-icon"></i>
+                    <span>Mastercard</span>
+                </div>
+            </div>
+
+            <!-- Payment Instructions -->
+            <div class="payment-options">
+                <div class="payment-option">
+                    <h3><i class="fas fa-mobile-alt mtn-icon"></i> MTN Mobile Money</h3>
+                    <p>Send payment to:</p>
+                    <div class="payment-number">+256 750 713 834</div>
+                    <p>Reference: CES2025</p>
+                    <button class="btn btn-mtn" onclick="copyToClipboard('+256750713834')">
+                        <i class="fas fa-copy"></i> Copy Number
+                    </button>
+                </div>
+                
+                <div class="payment-option">
+                    <h3><i class="fas fa-sim-card airtel-icon"></i> Airtel Money</h3>
+                    <p>Send payment to:</p>
+                    <div class="payment-number">+256 782038072</div>
+                    <p>Reference: CES2025</p>
+                    <button class="btn btn-airtel" onclick="copyToClipboard('+256782038072')">
+                        <i class="fas fa-copy"></i> Copy Number
+                    </button>
+                </div>
+                
+                <div class="payment-option">
+                    <h3><i class="fab fa-cc-mastercard mastercard-icon"></i> Mastercard</h3>
+                    <p>Card Number:</p>
+                    <div class="payment-number">**** **** **** 4321</div>
+                    <p>Exp: 12/26 | CVV: ***</p>
+                    <button class="btn btn-mastercard" onclick="processCardPayment()">
+                        <i class="fas fa-lock"></i> Secure Payment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Section -->
+    <section id="subscription" class="subscription" aria-labelledby="subscription-title">
+        <div class="container">
+            <h2 class="section-title" id="subscription-title">Join The Surge</h2>
+            <p class="section-subtitle">Become a member and unlock the full CES experience. Limited 2025 founding memberships available!</p>
+            
+            <div class="subscription-form" role="form" aria-label="Subscription form">
+                <input type="email" id="subscribeEmail" placeholder="Enter your email" aria-label="Email for subscription">
+                <button class="btn" onclick="subscribe()" aria-label="Get early access">Get Early Access</button>
+            </div>
+            
+            <div class="subscription-features" role="list">
+                <div class="feature" role="listitem">
+                    <i class="fas fa-crown" aria-hidden="true"></i>
+                    <span>Founding Member Benefits</span>
+                </div>
+                <div class="feature" role="listitem">
+                    <i class="fas fa-unlock" aria-hidden="true"></i>
+                    <span>All Content Unlocked</span>
+                </div>
+                <div class="feature" role="listitem">
+                    <i class="fas fa-robot" aria-hidden="true"></i>
+                    <span>Premium AI Assistant</span>
+                </div>
+                <div class="feature" role="listitem">
+                    <i class="fas fa-ticket-alt" aria-hidden="true"></i>
+                    <span>Exclusive Event Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-labelledby="contact-title">
+        <div class="container">
+            <h2 class="section-title" id="contact-title">Contact Us</h2>
+            <p class="section-subtitle">Got questions, ideas, or want to collaborate? Reach out to the CES team</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item" role="listitem">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Visit Our HQ</h3>
+                            <p>Innovation District, Seeta<br>Mukono, Uganda, CA 94107</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" role="listitem">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Call Us</h3>
+                            <p>+256 (750713834) CES-2025<br>Mon-Fri, 9AM-6PM PST</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" role="listitem">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Us</h3>
+                            <p>catphoenix6@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form" role="form" aria-label="Contact form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" aria-label="Your name" required>
+                        <input type="email" placeholder="Your Email" aria-label="Your email" required>
+                        <input type="text" placeholder="Subject" aria-label="Message subject">
+                        <textarea placeholder="Your Message" aria-label="Your message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team" aria-labelledby="team-title">
+        <div class="container">
+            <h2 class="section-title" id="team-title">Meet Our Team</h2>
+            <p class="section-subtitle">The passionate minds behind CAT ENTERTAINMENT SURGE</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://pikaso.cdnpk.net/private/production/2877050063/upload.png?preview=true&token=exp=1765884902~hmac=68e5c7e4c36863637d18876eb27ef4917825409b6db2c1ef5c57a57fe2db9e42&size=300" alt="OUNDO NELSON">
+                    </div>
+                    <div class="member-info">
+                        <h3>OUNDO NELSON</h3>
+                        <p>Founder & CEO</p>
+                        <p>Visionary leader with 10+ years in entertainment tech</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://media.istockphoto.com/id/512058584/photo/girl-with-headphones-using-a-laptop.jpg?s=1024x1024&w=is&k=20&c=ThFn2FhxW-wIHDyLb0Mewb8x7oOO9XH0DnPXHZnUrLk=" alt="Sarah Chen">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah Chen</h3>
+                        <p>CTO</p>
+                        <p>AI & Machine Learning Expert</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Marcus Johnson">
+                    </div>
+                    <div class="member-info">
+                        <h3>Marcus Johnson</h3>
+                        <p>Head of Content</p>
+                        <p>Former ESPN Producer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI chatbot assistant">
+        <i class="fas fa-robot" aria-hidden="true"></i>
+    </button>
+    
+    <div class="chatbot-container" id="chatbotContainer" role="dialog" aria-label="AI chatbot assistant">
+        <div class="chatbot-header">
+            <h3><i class="fas fa-robot" aria-hidden="true"></i> CES Assistant</h3>
+            <button class="close-chatbot" id="closeChatbot" aria-label="Close chatbot">&times;</button>
+        </div>
+        <iframe class="chatbot-frame" src="https://landbot.site/v3/H-3273997-X6DP6ZM8DSCBYYDN/index.html" title="CAT PHOENIX AI Assistant" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-paw" aria-hidden="true"></i> CAT ENTERTAINMENT SURGE
+                    </div>
+                    <p>The ultimate fusion of technology and entertainment, creating happiness experiences for the 2025 generation and beyond.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul role="list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About CES</a></li>
+                        <li><a href="#cat-tech">CAT TECH</a></li>
+                        <li><a href="#entertainment">Entertainment</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#subscription">Subscription</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#chatbotToggle" onclick="document.getElementById('chatbotToggle').click(); return false;">Cat Talkie</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Follow The Surge</h4>
+                    <div class="social-icons">
+                        <a href="https://tiktok.com/@catphoenix3#" aria-label="Follow us on TikTok" target="_blank"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/catphoenix3" aria-label="Follow us on Instagram" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://wa.me/256750713834" aria-label="Contact us on WhatsApp" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="https://discord.com" aria-label="Join our Discord community" target="_blank"><i class="fab fa-discord" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/@CatPhoenix-zl5ym" aria-label="Subscribe on YouTube" target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    </div>
+                    <p style="margin-top: 20px;">CES SURGE</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 CAT ENTERTAINMENT SURGE. All rights reserved. | The Future of Entertainment Starts Here</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
+        <div style="background: var(--dark); padding: 2rem; border-radius: 20px; max-width: 500px; width: 90%;">
+            <h2 id="modalPlanName" style="color: var(--accent); margin-bottom: 1rem;"></h2>
+            <p id="modalPlanPrice" style="font-size: 1.5rem; margin-bottom: 2rem;"></p>
+            
+            <div class="payment-methods" style="margin: 2rem 0;">
+                <button class="btn btn-mtn" onclick="selectPayment('mtn')">
+                    <i class="fas fa-mobile-alt"></i> MTN Mobile Money
+                </button>
+                <button class="btn btn-airtel" onclick="selectPayment('airtel')">
+                    <i class="fas fa-sim-card"></i> Airtel Money
+                </button>
+                <button class="btn btn-mastercard" onclick="selectPayment('mastercard')">
+                    <i class="fab fa-cc-mastercard"></i> Mastercard
+                </button>
+            </div>
+            
+            <button class="btn btn-outline" onclick="closePaymentModal()" style="width: 100%;">Cancel</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Loading Animation
+        window.addEventListener('load', () => {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 300);
+            }, 1000);
+        });
+
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+
+        // Animate Stats Counter
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 16);
+            });
+        }
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('stats')) {
+                        animateStats();
+                    }
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe elements for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const navLinks = document.querySelectorAll('.mobile-nav a');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            mobileToggle.innerHTML = mobileNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+            mobileToggle.setAttribute('aria-expanded', mobileNav.classList.contains('active'));
+            
+            // Prevent body scroll when menu is open
+            if (mobileNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileNav.contains(e.target) && !mobileToggle.contains(e.target) && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Chatbot Toggle
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChatbot = document.getElementById('closeChatbot');
+        
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.style.display = 'block';
+            setTimeout(() => {
+                chatbotContainer.style.opacity = '1';
+                chatbotContainer.style.transform = 'translateY(0)';
+            }, 10);
+            chatbotContainer.setAttribute('aria-hidden', 'false');
+            chatbotToggle.setAttribute('aria-expanded', 'true');
+        });
+        
+        closeChatbot.addEventListener('click', () => {
+            chatbotContainer.style.opacity = '0';
+            chatbotContainer.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                chatbotContainer.style.display = 'none';
+            }, 300);
+            chatbotContainer.setAttribute('aria-hidden', 'true');
+            chatbotToggle.setAttribute('aria-expanded', 'false');
+        });
+        
+        // Close chatbot when clicking outside
+        document.addEventListener('click', (e) => {
+            if (chatbotContainer.style.display === 'block' && 
+                !chatbotContainer.contains(e.target) && 
+                !chatbotToggle.contains(e.target)) {
+                chatbotContainer.style.opacity = '0';
+                chatbotContainer.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    chatbotContainer.style.display = 'none';
+                }, 300);
+                chatbotContainer.setAttribute('aria-hidden', 'true');
+                chatbotToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Open external pages
+        function openPage(url) {
+            window.open(url, '_blank');
+        }
+
+        function openChatbot() {
+            chatbotToggle.click();
+        }
+
+        // Payment Functions
+        let currentPlan = '';
+        let currentPrice = 0;
+
+        function showPaymentOptions(plan, price) {
+            currentPlan = plan;
+            currentPrice = price;
+            
+            document.getElementById('modalPlanName').textContent = `${plan} Plan`;
+            document.getElementById('modalPlanPrice').textContent = `Price: ₵${price}/month`;
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        function selectPayment(method) {
+            closePaymentModal();
+            
+            let message = '';
+            let number = '';
+            
+            switch(method) {
+                case 'mtn':
+                    number = '+256750713834';
+                    message = `MTN Mobile Money Payment\n\nPlan: ${currentPlan}\nAmount: ₵${currentPrice}\nSend to: ${number}\nReference: CES2025`;
+                    break;
+                case 'airtel':
+                    number = '+256774919166';
+                    message = `Airtel Money Payment\n\nPlan: ${currentPlan}\nAmount: ₵${currentPrice}\nSend to: ${number}\nReference: CES2025`;
+                    break;
+                case 'mastercard':
+                    message = `Mastercard Payment\n\nPlan: ${currentPlan}\nAmount: ₵${currentPrice}\nCard will be charged securely.`;
+                    break;
+            }
+            
+            alert(`✅ Payment Instructions:\n\n${message}\n\nAfter payment, your account will be activated within 5 minutes.`);
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                alert(`🎉 Payment Successful!\n\nYour ${currentPlan} plan has been activated!\nEnjoy unlimited access to all CAT ENTERTAINMENT SURGE content.`);
+            }, 2000);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert(`📋 Copied to clipboard: ${text}`);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        function processCardPayment() {
+            alert('🔒 Secure payment gateway opening...\n\nYou will be redirected to a secure payment page.');
+            // In a real application, you would redirect to payment gateway
+        }
+
+        // Subscription Function
+        function subscribe() {
+            const emailInput = document.getElementById('subscribeEmail');
+            const email = emailInput.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && emailPattern.test(email)) {
+                // Show success animation
+                emailInput.style.borderColor = 'var(--accent)';
+                emailInput.style.background = 'rgba(0, 196, 154, 0.1)';
+                
+                alert(`🎉 Thank you! Welcome to the CAT ENTERTAINMENT SURGE. Early access details have been sent to ${email}.`);
+                emailInput.value = '';
+                emailInput.blur();
+                
+                // Reset styles after 2 seconds
+                setTimeout(() => {
+                    emailInput.style.borderColor = '';
+                    emailInput.style.background = '';
+                }, 2000);
+            } else {
+                // Show error animation
+                emailInput.style.borderColor = 'var(--primary)';
+                emailInput.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    emailInput.style.animation = '';
+                }, 500);
+                
+                alert('Please enter a valid email address.');
+                emailInput.focus();
+            }
+        }
+        
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputs = this.querySelectorAll('input, textarea');
+            let isValid = true;
+            
+            // Validation
+            inputs.forEach(input => {
+                if (input.hasAttribute('required') && !input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = 'var(--primary)';
+                    input.style.animation = 'shake 0.5s';
+                    setTimeout(() => {
+                        input.style.animation = '';
+                    }, 500);
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+            
+            if (isValid) {
+                // Show success animation
+                this.style.opacity = '0.7';
+                this.style.pointerEvents = 'none';
+                
+                setTimeout(() => {
+                    alert('✅ Thank you for your message! The CES team will get back to you within 24 hours.');
+                    this.reset();
+                    this.style.opacity = '1';
+                    this.style.pointerEvents = 'auto';
+                }, 500);
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
+        
+        // Handle initial scroll position
+        window.addEventListener('load', () => {
+            if (window.location.hash) {
+                setTimeout(() => {
+                    const targetElement = document.querySelector(window.location.hash);
+                    if (targetElement) {
+                        const headerHeight = document.getElementById('header').offsetHeight;
+                        window.scrollTo(0, targetElement.offsetTop - headerHeight - 20);
+                    }
+                }, 100);
+            }
+        });
+        
+        // Shake animation for errors
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                20%, 40%, 60%, 80% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Theme toggle (dark/light mode)
+        const themeToggle = document.createElement('button');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        themeToggle.className = 'btn btn-sm';
+        themeToggle.style.position = 'fixed';
+        themeToggle.style.bottom = '100px';
+        themeToggle.style.right = '20px';
+        themeToggle.style.zIndex = '999';
+        themeToggle.style.width = '50px';
+        themeToggle.style.height = '50px';
+        themeToggle.style.borderRadius = '50%';
+        themeToggle.style.padding = '0';
+        themeToggle.style.display = 'flex';
+        themeToggle.style.alignItems = 'center';
+        themeToggle.style.justifyContent = 'center';
+        themeToggle.setAttribute('aria-label', 'Toggle theme');
+        document.body.appendChild(themeToggle);
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                document.body.style.backgroundColor = '#F8F9FA';
+                document.body.style.color = '#0A0F1C';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                document.body.style.backgroundColor = '';
+                document.body.style.color = '';
+            }
+        });
+        
+        // Add light mode styles
+        const lightModeStyles = document.createElement('style');
+        lightModeStyles.textContent = `
+            .light-mode {
+                --light: #0A0F1C;
+                --dark: #F8F9FA;
+                --gray: #495057;
+            }
+            
+            .light-mode .section-title {
+                color: var(--primary);
+            }
+            
+            .light-mode .tech-card,
+            .light-mode .feature-card,
+            .light-mode .pricing-card,
+            .light-mode .contact-item,
+            .light-mode .team-member {
+                background: rgba(10, 15, 28, 0.03);
+                border-color: rgba(10, 15, 28, 0.1);
+            }
+            
+            .light-mode .tech-card:hover,
+            .light-mode .feature-card:hover,
+            .light-mode .pricing-card:hover,
+            .light-mode .contact-item:hover,
+            .light-mode .team-member:hover {
+                background: rgba(10, 15, 28, 0.05);
+                border-color: var(--primary);
+            }
+            
+            .light-mode .tech-card p,
+            .light-mode .feature-card p,
+            .light-mode .contact-text p {
+                color: rgba(10, 15, 28, 0.7);
+            }
+            
+            .light-mode footer {
+                background: #E9ECEF;
+            }
+            
+            .light-mode .footer-links a,
+            .light-mode .copyright {
+                color: rgba(10, 15, 28, 0.7);
+            }
+            
+            .light-mode .social-icons a {
+                background: rgba(10, 15, 28, 0.1);
+            }
+        `;
+        document.head.appendChild(lightModeStyles);
+        
+        // Back to top button
+        const backToTop = document.createElement('button');
+        backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        backToTop.className = 'btn btn-sm';
+        backToTop.style.position = 'fixed';
+        backToTop.style.bottom = '160px';
+        backToTop.style.right = '20px';
+        backToTop.style.zIndex = '999';
+        backToTop.style.width = '50px';
+        backToTop.style.height = '50px';
+        backToTop.style.borderRadius = '50%';
+        backToTop.style.padding = '0';
+        backToTop.style.display = 'flex';
+        backToTop.style.alignItems = 'center';
+        backToTop.style.justifyContent = 'center';
+        backToTop.style.opacity = '0';
+        backToTop.style.transition = 'opacity 0.3s ease';
+        backToTop.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(backToTop);
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.style.opacity = '1';
+            } else {
+                backToTop.style.opacity = '0';
+            }
+        });
+        
+        // Initialize stats animation on load
+        animateStats();
+
+        // Close payment modal when clicking outside
+        document.getElementById('paymentModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePaymentModal();
+            }
+        });
+
+        // Handle escape key for payment modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('paymentModal').style.display === 'flex') {
+                closePaymentModal();
+            }
+        });
+
+        // Device detection and optimization
+        function detectDevice() {
+            const userAgent = navigator.userAgent;
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(userAgent);
+            const isTablet = /iPad|Tablet|PlayBook|Silk/i.test(userAgent);
+            
+            if (isMobile) {
+                document.body.classList.add('mobile-device');
+                // Optimize for mobile
+                document.querySelectorAll('img').forEach(img => {
+                    img.loading = 'lazy';
+                });
+            }
+            
+            if (isTablet) {
+                document.body.classList.add('tablet-device');
+            }
+        }
+
+        // Initialize device detection
+        detectDevice();
+
+        // Network detection for offline support
+        window.addEventListener('online', () => {
+            showNotification('🌐 You are back online!', 'success');
+        });
+
+        window.addEventListener('offline', () => {
+            showNotification('⚠️ You are offline. Some features may not work.', 'warning');
+        });
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.position = 'fixed';
+            notification.style.top = '20px';
+            notification.style.right = '20px';
+            notification.style.padding = '1rem';
+            notification.style.borderRadius = '10px';
+            notification.style.color = 'white';
+            notification.style.zIndex = '10000';
+            notification.style.animation = 'slideIn 0.3s ease';
+            
+            if (type === 'success') {
+                notification.style.background = 'var(--accent)';
+            } else if (type === 'warning') {
+                notification.style.background = 'var(--primary)';
+            }
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Add notification animation
+        const notificationStyle = document.createElement('style');
+        notificationStyle.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(notificationStyle);
+
+        // Service Worker for offline support (if needed)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(error => {
+                    console.log('ServiceWorker registration failed:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

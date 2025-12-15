@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription - CAT ENTERTAINMENT SURGE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #00C49A;
+            --dark: #0A0F1C;
+            --light: #F8F9FA;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        /* Payment Links */
+        .payment-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        .payment-link:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav style="background: rgba(10, 15, 28, 0.95); padding: 1rem 0;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" style="color: var(--primary); font-size: 1.5rem; text-decoration: none;">
+                <i class="fas fa-paw"></i> CAT ENTERTAINMENT SURGE
+            </a>
+            <div>
+                <a href="file:///C:/Users/VIRAL%20CAFE%20PC%202/Documents/Custom%20Office%20Templates/CAT%20PHOENIX/CAT%20ENTERTAINMENT%20SURGE/CAT%20ENTERTAINMENT%20SURGE%20.html#home" style="color: white; margin-left: 1rem; text-decoration: none;">Home</a>
+                <a href="entertainment.html" style="color: white; margin-left: 1rem; text-decoration: none;">Entertainment</a>
+                <a href="subscription.html" style="color: var(--primary); margin-left: 1rem; text-decoration: none;">Subscription</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section style="padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">JOIN THE SURGE</h1>
+            <p style="font-size: 1.2rem; color: #ccc;">Unlock all live content with one subscription</p>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="container">
+        <div class="pricing-grid">
+            <!-- Free Tier -->
+            <div class="pricing-card">
+                <h3>SURGE FAN</h3>
+                <div class="price">$0<span style="font-size: 1rem; color: #999;">/month</span></div>
+                <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+                    <li>✓ Basic live streams</li>
+                    <li>✓ Limited content</li>
+                    <li>✓ Community access</li>
+                    <li style="color: #666;">✗ Exclusive events</li>
+                </ul>
+                <a href="entertainment.html" class="payment-link" style="background: #666;">
+                    Continue Free
+                </a>
+            </div>
+
+            <!-- Premium Tier -->
+            <div class="pricing-card" style="border: 2px solid var(--primary); transform: scale(1.05);">
+                <div style="background: var(--primary); color: white; padding: 0.5rem; border-radius: 20px; margin-bottom: 1rem;">
+                    MOST POPULAR
+                </div>
+                <h3>SURGE PREMIUM</h3>
+                <div class="price">$9.99<span style="font-size: 1rem; color: #999;">/month</span></div>
+                <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+                    <li>✓ All live streams</li>
+                    <li>✓ Full content library</li>
+                    <li>✓ Exclusive events</li>
+                    <li>✓ AI recommendations</li>
+                </ul>
+                <a href="https://buy.stripe.com/test_00g4jcbYEaIY4SQ9AB" 
+                   target="_blank" class="payment-link">
+                    Subscribe Now
+                </a>
+                <p style="margin-top: 0.5rem; color: #ccc; font-size: 0.9rem;">
+                    🔒 Secure payment via Stripe
+                </p>
+            </div>
+
+            <!-- VIP Tier -->
+            <div class="pricing-card">
+                <h3>SURGE VIP</h3>
+                <div class="price">$24.99<span style="font-size: 1rem; color: #999;">/month</span></div>
+                <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+                    <li>✓ Everything Premium</li>
+                    <li>✓ VIP events</li>
+                    <li>✓ Early access</li>
+                    <li>✓ Priority support</li>
+                </ul>
+                <a href="https://buy.stripe.com/test_28o5nq3MY2pM2soaEL" 
+                   target="_blank" class="payment-link">
+                    Go VIP
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="container" style="padding: 4rem 0; text-align: center;">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem;">SECURE PAYMENT METHODS</h2>
+        
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+            <a href="https://paypal.com" target="_blank" 
+               style="color: white; text-decoration: none; padding: 1rem 2rem; background: #003087; border-radius: 10px;">
+                <i class="fab fa-paypal"></i> PayPal
+            </a>
+            <a href="https://stripe.com" target="_blank" 
+               style="color: white; text-decoration: none; padding: 1rem 2rem; background: #635bff; border-radius: 10px;">
+                <i class="fas fa-credit-card"></i> Stripe
+            </a>
+            <a href="https://coinbase.com" target="_blank" 
+               style="color: white; text-decoration: none; padding: 1rem 2rem; background: #0052ff; border-radius: 10px;">
+                <i class="fab fa-bitcoin"></i> Crypto
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #050913; padding: 4rem 0 2rem; margin-top: 4rem;">
+        <div class="container" style="text-align: center;">
+            <p style="color: #666;">&copy;CAT ENTERTAINMENT SURGE. All payment links are live and secure.</p>
+        </div>
+    </footer>
+</body>
+</html>

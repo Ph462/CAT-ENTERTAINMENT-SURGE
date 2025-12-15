@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>CAT TALKIE - Video & Photo Hub | CAT ENTERTAINMENT SURGE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* === UNIVERSAL DEVICE COMPATIBILITY === */
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #00C49A;
+            --accent-light: #2EE6BA;
+            --dark: #0A0F1C;
+            --darker: #050913;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --gradient-dark: linear-gradient(135deg, #004E89, #00C49A);
+            --gradient-light: linear-gradient(135deg, #FF6B35, #FF8E53);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            --shadow-light: 0 5px 20px rgba(255, 107, 53, 0.2);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-left: env(safe-area-inset-left, 0px);
+            --safe-right: env(safe-area-inset-right, 0px);
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        html {
+            font-size: clamp(14px, 2vw, 18px);
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: none;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            width: 100%;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-left: var(--safe-left);
+            padding-right: var(--safe-right);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 max(4vw, 16px);
+            margin: 0 auto;
+        }
+
+        /* === TYPOGRAPHY === */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 6vw, 2.8rem);
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-top: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: min(100px, 20vw);
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            margin-bottom: 3rem;
+            max-width: min(90vw, 700px);
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 5vw;
+        }
+
+        /* === NAVIGATION === */
+        .nav-3d {
+            position: fixed;
+            top: var(--safe-top);
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+            background: rgba(5, 9, 19, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-3d {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .nav-links-3d {
+            display: flex;
+            gap: clamp(1rem, 3vw, 2.5rem);
+            list-style: none;
+        }
+
+        .nav-links-3d a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-links-3d a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .nav-links-3d a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links-3d a:hover::before {
+            width: 100%;
+        }
+
+        /* === HERO SECTION === */
+        .talkie-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: calc(80px + var(--safe-top));
+            background: linear-gradient(135deg, 
+                rgba(255, 107, 53, 0.15) 0%, 
+                rgba(0, 196, 154, 0.15) 100%),
+                url('https://images.unsplash.com/photo-1578303502595-b7d48e5d6a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .talkie-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255, 107, 53, 0.2) 0%, transparent 50%),
+                       radial-gradient(circle at 70% 30%, rgba(0, 196, 154, 0.2) 0%, transparent 50%);
+            animation: float 20s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        /* === CAT TALKIE INTEGRATION === */
+        .talkie-integration {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .platform-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .platform-feature {
+            background: var(--glass);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .platform-feature:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        /* === PHOTO GALLERY === */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .photo-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .photo-card:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-light);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .photo-card:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        /* === VIDEO GRID === */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .video-card {
+            background: var(--glass);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* === BUTTONS === */
+        .btn-3d {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1rem, 3vw, 1.2rem) clamp(2rem, 4vw, 2.5rem);
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: clamp(0.95rem, 3vw, 1rem);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            min-height: 44px;
+            min-width: 44px;
+            text-align: center;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            gap: 0.5rem;
+        }
+
+        .btn-3d:hover, .btn-3d:active {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover, .btn-outline:active {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        /* === STATS === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--glass);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* === FOOTER === */
+        .footer-3d {
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid var(--glass-border);
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        /* === MOBILE MENU === */
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light);
+            background: none;
+            border: none;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: calc(80px + var(--safe-top));
+            left: 0;
+            width: 100%;
+            background: rgba(5, 9, 19, 0.99);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: min(5vw, 30px);
+            display: none;
+            flex-direction: column;
+            z-index: 9999;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: calc(100vh - 80px - var(--safe-top));
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            padding: min(4vw, 18px) min(5vw, 20px);
+            display: block;
+            transition: var(--transition);
+            border-radius: 10px;
+            margin-bottom: 5px;
+            border: 1px solid transparent;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-nav a:hover, .mobile-nav a:active {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 107, 53, 0.3);
+            color: var(--primary);
+            padding-left: min(8vw, 30px);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); box-shadow: 0 0 20px rgba(255, 107, 53, 0.3); }
+            50% { filter: brightness(1.2); box-shadow: 0 0 40px rgba(255, 107, 53, 0.5); }
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 768px) {
+            .nav-links-3d {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .talkie-hero {
+                min-height: 60vh;
+                padding-top: calc(70px + var(--safe-top));
+            }
+            
+            .platform-preview {
+                grid-template-columns: 1fr;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+                gap: 1rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .section-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1200px;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* === LANDSCAPE MODE === */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .talkie-hero {
+                min-height: 100vh;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+            }
+        }
+
+        /* === DARK MODE PREFERENCE === */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #0A0F1C;
+                color: #F8F9FA;
+            }
+        }
+
+        /* === REDUCED MOTION === */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-3d">
+        <div class="container nav-content">
+            <a href="index.html" class="logo-3d">
+                <i class="fas fa-paw"></i>
+                <span>CAT ENTERTAINMENT SURGE</span>
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links-3d">
+                <li><a href="file:///C:/Users/VIRAL%20CAFE%20PC%202/Documents/Custom%20Office%20Templates/CAT%20PHOENIX/CAT%20ENTERTAINMENT%20SURGE/CAT%20ENTERTAINMENT%20SURGE%20.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="cat-tech.html">CAT TECH</a></li>
+                <li><a href="entertainment.html">Entertainment</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cat-talkie.html" style="color: var(--accent-light);">CAT TALKIE</a></li>
+            </ul>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="cat-tech.html">CAT TECH</a>
+            <a href="entertainment.html">Entertainment</a>
+            <a href="subscription.html">Subscription</a>
+            <a href="contact.html">Contact</a>
+            <a href="cat-talkie.html" style="color: var(--accent-light);">CAT TALKIE</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="talkie-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate__animated animate__fadeInUp" style="margin-bottom: 1.5rem;">
+                    WELCOME TO <span style="color: var(--accent-light);">CAT TALKIE</span>
+                </h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s" style="font-size: clamp(1.1rem, 3vw, 1.4rem); margin-bottom: 2rem; max-width: 700px;">
+                    Your ultimate destination for amazing videos and stunning photos. Watch, share, and connect with creators from around the world.
+                </p>
+                <div class="animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="#talkie-platform" class="btn-3d" style="margin-right: 1rem;">
+                        <i class="fas fa-play-circle"></i> Explore Videos
+                    </a>
+                    <a href="#photo-gallery" class="btn-3d btn-outline">
+                        <i class="fas fa-images"></i> View Photos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAT TALKIE Platform Integration -->
+    <section id="talkie-platform" class="container">
+        <h2 class="section-title">CAT TALKIE PLATFORM</h2>
+        <p class="section-subtitle">
+            Integrated with our official video sharing platform. Sign in to start watching amazing videos from creators worldwide.
+        </p>
+        
+        <div class="talkie-integration animate__animated animate__fadeInUp">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-light); font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 1rem;">
+                    <i class="fas fa-external-link-alt"></i> Direct Platform Access
+                </h3>
+                <p style="color: var(--gray); max-width: 800px; margin: 0 auto;">
+                    Access the full CAT TALKIE experience with videos, creator profiles, trending content, and community features.
+                </p>
+            </div>
+            
+            <div class="platform-preview">
+                <div class="platform-feature">
+                    <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h4>Video Library</h4>
+                    <p style="color: var(--gray);">Discover millions of videos across all categories</p>
+                </div>
+                
+                <div class="platform-feature">
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Creator Community</h4>
+                    <p style="color: var(--gray);">Connect with top creators and build your audience</p>
+                </div>
+                
+                <div class="platform-feature">
+                    <div style="font-size: 2.5rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Trending Content</h4>
+                    <p style="color: var(--gray);">Stay updated with what's popular right now</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://ph462.github.io/CAT-TALKIE-/" 
+                   target="_blank" 
+                   class="btn-3d"
+                   style="background: linear-gradient(135deg, var(--accent-light), var(--accent)); padding: 1.2rem 3rem; font-size: 1.1rem;">
+                    <i class="fas fa-external-link-alt"></i> Visit CAT TALKIE Platform
+                </a>
+                <p style="margin-top: 1rem; color: var(--gray); font-size: 0.9rem;">
+                    Opens in new window • Full platform experience
+                </p>
+            </div>
+        </div>
+        
+        <!-- Platform Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number" data-count="24">0</span>
+                <p>Million Daily Views</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-count="1.2">0</span>
+                <p>Million Daily Uploads</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-count="89">0</span>
+                <p>Thousand Active Creators</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-count="5">0</span>
+                <p>Content Categories</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Content Section -->
+    <section class="container" style="padding: 4rem 0;">
+        <h2 class="section-title">FEATURED VIDEOS</h2>
+        <p class="section-subtitle">Top trending videos from the CAT TALKIE community</p>
+        
+        <div class="video-grid">
+            <!-- Video 1 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Gaming Stream" loading="lazy">
+                    <div class="play-button" onclick="playVideo('gaming')">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div style="padding: 1.5rem;">
+                    <h4 style="margin-bottom: 0.5rem;">Epic Gaming Montage 2025</h4>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">
+                        Top gaming moments from professional players
+                    </p>
+                    <div style="display: flex; justify-content: space-between; color: var(--gray); font-size: 0.85rem;">
+                        <span><i class="fas fa-eye"></i> 2.4M views</span>
+                        <span><i class="fas fa-heart"></i> 124K</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 2 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Music Video" loading="lazy">
+                    <div class="play-button" onclick="playVideo('music')">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div style="padding: 1.5rem;">
+                    <h4 style="margin-bottom: 0.5rem;">Live Music Festival 2025</h4>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">
+                        Full concert recording from main stage
+                    </p>
+                    <div style="display: flex; justify-content: space-between; color: var(--gray); font-size: 0.85rem;">
+                        <span><i class="fas fa-eye"></i> 5.7M views</span>
+                        <span><i class="fas fa-heart"></i> 289K</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 3 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Comedy Show" loading="lazy">
+                    <div class="play-button" onclick="playVideo('comedy')">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div style="padding: 1.5rem;">
+                    <h4 style="margin-bottom: 0.5rem;">Stand-up Comedy Special</h4>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">
+                        Hilarious comedy set from top comedian
+                    </p>
+                    <div style="display: flex; justify-content: space-between; color: var(--gray); font-size: 0.85rem;">
+                        <span><i class="fas fa-eye"></i> 3.1M views</span>
+                        <span><i class="fas fa-heart"></i> 156K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="photo-gallery" class="container" style="padding: 4rem 0; background: rgba(0,0,0,0.2); border-radius: 20px; margin: 2rem 0;">
+        <h2 class="section-title">PHOTO GALLERY</h2>
+        <p class="section-subtitle">Browse stunning photos from our community creators</p>
+        
+        <div class="photo-gallery">
+            <!-- Photo 1 -->
+            <div class="photo-card" onclick="viewPhoto(1)">
+                <img src="https://media.istockphoto.com/id/1317323736/photo/a-view-up-into-the-trees-direction-sky.jpg?s=1024x1024&w=is&k=20&c=9Qfj9S124ojed7s4OWu3a3vbbMC76QYkqczg4L4M-Sc=" 
+                     alt="Nature Photography" loading="lazy">
+                <div class="photo-overlay">
+                    <h4>Nature Wonders</h4>
+                    <p style="font-size: 0.9rem;">By @NatureLens</p>
+                </div>
+            </div>
+            
+            <!-- Photo 2 -->
+            <div class="photo-card" onclick="viewPhoto(2)">
+                <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Urban Photography" loading="lazy">
+                <div class="photo-overlay">
+                    <h4>City Lights</h4>
+                    <p style="font-size: 0.9rem;">By @UrbanShots</p>
+                </div>
+            </div>
+            
+            <!-- Photo 3 -->
+            <div class="photo-card" onclick="viewPhoto(3)">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Portrait Photography" loading="lazy">
+                <div class="photo-overlay">
+                    <h4>Portrait Series</h4>
+                    <p style="font-size: 0.9rem;">By @PortraitPro</p>
+                </div>
+            </div>
+            
+            <!-- Photo 4 -->
+            <div class="photo-card" onclick="viewPhoto(4)">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Landscape Photography" loading="lazy">
+                <div class="photo-overlay">
+                    <h4>Mountain Views</h4>
+                    <p style="font-size: 0.9rem;">By @LandscapeArt</p>
+                </div>
+            </div>
+            
+            <!-- Photo 5 -->
+            <div class="photo-card" onclick="viewPhoto(5)">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Wildlife Photography" loading="lazy">
+                <div class="photo-overlay">
+                    <h4>Wildlife</h4>
+                    <p style="font-size: 0.9rem;">By @WildlifeCam</p>
+                </div>
+            </div>
+            
+            <!-- Photo 6 -->
+            <div class="photo-card" onclick="viewPhoto(6)">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Astrophotography" loading="lazy">
+                <div class="photo-overlay">
+                    <h4>Night Sky</h4>
+                    <p style="font-size: 0.9rem;">By @StarGazer</p>
+                </div>
+            </div>
+            
+            <!-- Photo 7 -->
+            <div class="photo-card" onclick="viewPhoto(7)">
+                <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Street Photography" loading="lazy">
+                <div class="photo-overlay">
+                    <h4>Street Life</h4>
+                    <p style="font-size: 0.9rem;">By @StreetView</p>
+                </div>
+            </div>
+            
+            <!-- Photo 8 -->
+            <div class="photo-card" onclick="viewPhoto(8)">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Macro Photography" loading="lazy">
+                <div class="photo-overlay">
+                    <h4>Macro World</h4>
+                    <p style="font-size: 0.9rem;">By @MacroMagic</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <button onclick="loadMorePhotos()" class="btn-3d btn-outline">
+                <i class="fas fa-plus"></i> Load More Photos
+            </button>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="container" style="padding: 4rem 0;">
+        <div class="talkie-integration" style="background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,196,154,0.1));">
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <h3 style="color: var(--accent-light); font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 1rem;">
+                    <i class="fas fa-cloud-upload-alt"></i> Share Your Content
+                </h3>
+                <p style="color: var(--gray); margin-bottom: 2rem;">
+                    Join our community of creators. Upload your videos and photos to CAT TALKIE and share your talent with the world.
+                </p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://ph462.github.io/CAT-TALKIE-/" 
+                       target="_blank" 
+                       class="btn-3d"
+                       style="background: var(--accent);">
+                        <i class="fas fa-upload"></i> Upload Videos
+                    </a>
+                    <button onclick="uploadPhoto()" class="btn-3d btn-outline">
+                        <i class="fas fa-camera"></i> Share Photos
+                    </button>
+                </div>
+                
+                <p style="margin-top: 1.5rem; color: var(--gray); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Sign in to CAT TALKIE platform to start uploading
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-3d">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo-3d" style="font-size: 2rem; margin-bottom: 1rem;">
+                        <i class="fas fa-paw"></i> CAT TALKIE
+                    </div>
+                    <p style="color: var(--gray);">
+                        Video and photo sharing platform by CAT ENTERTAINMENT SURGE. Connect, create, and share amazing content.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--light); margin-bottom: 1rem;">Quick Links</h4>
+                    <a href="file:///C:/Users/VIRAL%20CAFE%20PC%202/Documents/Custom%20Office%20Templates/CAT%20PHOENIX/CAT%20ENTERTAINMENT%20SURGE/CAT%20ENTERTAINMENT%20SURGE%20.html" style="display: block; color: var(--gray); text-decoration: none; margin-bottom: 0.5rem;">Home</a>
+                    <a href="cat-talkie.html" style="display: block; color: var(--accent-light); text-decoration: none; margin-bottom: 0.5rem;">CAT TALKIE</a>
+                    <a href="entertainment.html" style="display: block; color: var(--gray); text-decoration: none; margin-bottom: 0.5rem;">Entertainment</a>
+                    <a href="file:///C:/Users/VIRAL%20CAFE%20PC%202/Documents/Custom%20Office%20Templates/CAT%20PHOENIX/CAT%20ENTERTAINMENT%20SURGE/cat%20tech.html" style="display: block; color: var(--gray); text-decoration: none; margin-bottom: 0.5rem;">CAT TECH</a>
+                    <a href="subscription.html" style="display: block; color: var(--gray); text-decoration: none;">Subscription</a>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--light); margin-bottom: 1rem;">Connect</h4>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <a href="https://wa.me/255750713834" 
+                           target="_blank" 
+                           style="color: #25D366; font-size: 1.5rem; text-decoration: none;"
+                           title="chat on whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/catphoenix3?igsh=MWR1cmppZGt5NjIdQ==" style="color: var(--primary); font-size: 1.5rem; text-decoration: none;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@CatPhoenix-zl5ym" style="color: var(--primary); font-size: 1.5rem; text-decoration: none;">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://tiktok.com/@catphoenix3#" style="color: var(--primary); font-size: 1.5rem; text-decoration: none;">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
+                <p style="color: var(--gray);">
+                    &copy; CAT ENTERTAINMENT SURGE. CAT TALKIE - Video & Photo Sharing Platform.
+                </p>
+                <p style="color: var(--gray); margin-top: 0.5rem; font-size: 0.9rem;">
+                    Platform: <a href="https://ph462.github.io/CAT-TALKIE-/" 
+                                 target="_blank" 
+                                 style="color: var(--accent-light); text-decoration: none;">
+                                 https://ph462.github.io/CAT-TALKIE-/
+                              </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Photo Viewer Modal -->
+    <div id="photoModal" 
+         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10001; display: none; align-items: center; justify-content: center; padding: var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);">
+        <div style="position: relative; max-width: 90vw; max-height: 90vh;">
+            <button onclick="closePhoto()" 
+                    style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 2rem; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImage" 
+                 style="max-width: 100%; max-height: 80vh; border-radius: 10px;"
+                 alt="Enlarged photo">
+            <div style="color: white; text-align: center; margin-top: 1rem;">
+                <h4 id="modalTitle"></h4>
+                <p id="modalAuthor" style="color: var(--gray);"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            mobileToggle.innerHTML = mobileNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+            mobileToggle.setAttribute('aria-expanded', mobileNav.classList.contains('active'));
+        });
+        
+        // Close mobile nav when clicking a link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Animated Counter
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-count'));
+                const increment = target / 50;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = current.toFixed(current % 1 !== 0 ? 1 : 0);
+                        if (current.toFixed(1).endsWith('.0')) {
+                            counter.textContent = Math.floor(current);
+                        }
+                        setTimeout(updateCounter, 30);
+                    } else {
+                        counter.textContent = target + (target % 1 !== 0 ? '.0' : '');
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+        
+        // Photo Viewer
+        const photoModal = document.getElementById('photoModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalAuthor = document.getElementById('modalAuthor');
+        
+        const photos = [
+            {
+                src: 'https://images.unsplash.com/photo-1514888286974-6d03bde4ba48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                title: 'Nature Wonders',
+                author: 'By @NatureLens'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                title: 'City Lights',
+                author: 'By @UrbanShots'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                title: 'Portrait Series',
+                author: 'By @PortraitPro'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                title: 'Mountain Views',
+                author: 'By @LandscapeArt'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                title: 'Wildlife',
+                author: 'By @WildlifeCam'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                title: 'Night Sky',
+                author: 'By @StarGazer'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                title: 'Street Life',
+                author: 'By @StreetView'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                title: 'Macro World',
+                author: 'By @MacroMagic'
+            }
+        ];
+        
+        function viewPhoto(index) {
+            const photo = photos[index - 1];
+            modalImage.src = photo.src;
+            modalTitle.textContent = photo.title;
+            modalAuthor.textContent = photo.author;
+            photoModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closePhoto() {
+            photoModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        photoModal.addEventListener('click', (e) => {
+            if (e.target === photoModal) {
+                closePhoto();
+            }
+        });
+        
+        // Video Play Function
+        function playVideo(type) {
+            const videoUrls = {
+                gaming: 'https://www.youtube.com/live/jzOTIIh6i7M?si=uWIdc1wue7_7Hwwy',
+                music: 'https://www.youtube.com/live/0rTjLHYZ5rQ?si=KEtZZXcG7I81PmJ6',
+                comedy: 'https://www.youtube.com/live/5qap5aO4i9A?si=4Q7x6S3VK8LvNxv7'
+            };
+            
+            if (videoUrls[type]) {
+                window.open(videoUrls[type], '_blank');
+            }
+        }
+        
+        // Upload Photo Simulation
+        function uploadPhoto() {
+            alert('To upload photos, please visit the CAT TALKIE platform and sign in to your account.');
+            window.open('https://ph462.github.io/CAT-TALKIE-/', '_blank');
+        }
+        
+        // Load More Photos
+        function loadMorePhotos() {
+            const gallery = document.querySelector('.photo-gallery');
+            const newPhotos = [
+                {
+                    src: 'https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    title: 'Urban Architecture',
+                    author: 'By @Cityscapes'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    title: 'Ocean Views',
+                    author: 'By @SeaSide'
+                }
+            ];
+            
+            newPhotos.forEach((photo, index) => {
+                const card = document.createElement('div');
+                card.className = 'photo-card';
+                card.onclick = () => viewPhoto(9 + index);
+                card.innerHTML = `
+                    <img src="${photo.src}" alt="${photo.title}" loading="lazy">
+                    <div class="photo-overlay">
+                        <h4>${photo.title}</h4>
+                        <p style="font-size: 0.9rem;">${photo.author}</p>
+                    </div>
+                `;
+                gallery.appendChild(card);
+            });
+            
+            alert('2 more photos loaded!');
+        }
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('stats-grid')) {
+                        animateCounters();
+                    }
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, observerOptions);
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observe elements for animation
+            const elementsToObserve = document.querySelectorAll('.talkie-integration, .video-card, .platform-feature');
+            elementsToObserve.forEach(el => observer.observe(el));
+            
+            // Observe stats section
+            const statsSection = document.querySelector('.stats-grid');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+            
+            // WhatsApp link
+            const whatsappLink = document.querySelector('a[href*="whatsapp"]');
+            if (whatsappLink) {
+                whatsappLink.innerHTML = '<i class="fab fa-whatsapp"></i> Chat on WhatsApp (0750713834)';
+            }
+        });
+        
+        // Handle escape key for photo modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && photoModal.style.display === 'flex') {
+                closePhoto();
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.nav-3d').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

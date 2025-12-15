@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - CAT ENTERTAINMENT SURGE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #00C49A;
+            --dark: #0A0F1C;
+            --light: #F8F9FA;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        /* Contact Links */
+        .contact-link {
+            display: block;
+            color: var(--accent);
+            text-decoration: none;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav style="background: rgba(10, 15, 28, 0.95); padding: 1rem 0;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" style="color: var(--primary); font-size: 1.5rem; text-decoration: none;">
+                <i class="fas fa-paw"></i> CAT ENTERTAINMENT SURGE
+            </a>
+            <div>
+                <a href="file:///C:/Users/VIRAL%20CAFE%20PC%202/Documents/Custom%20Office%20Templates/CAT%20PHOENIX/CAT%20ENTERTAINMENT%20SURGE/CAT%20ENTERTAINMENT%20SURGE%20.html#home" style="color: white; margin-left: 1rem; text-decoration: none;">Home</a>
+                <a href="entertainment.html" style="color: white; margin-left: 1rem; text-decoration: none;">Entertainment</a>
+                <a href="contact.html" style="color: var(--primary); margin-left: 1rem; text-decoration: none;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section style="padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">CONTACT US</h1>
+            <p style="font-size: 1.2rem; color: #ccc;">Get in touch with our team</p>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="container" style="padding: 2rem 0;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem;">QUICK CONTACT</h2>
+            
+            <a href="catphoneix6@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i> support@catentertainmentsurge.com
+            </a>
+            
+            <a href="https://wa.me/256750713834" target="_blank" class="contact-link">
+                <i class="fab fa-whatsapp"></i> Message us on Whatsapp
+            </a>
+            
+            <a href="https://tiktok.com/@catphoenix3#" target="_blank" class="contact-link">
+                <i class="fab fa-tiktok"></i> Join our Tiktok
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="container">
+        <div class="contact-form">
+            <h2 style="text-align: center; margin-bottom: 2rem;">SEND A MESSAGE</h2>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                
+                <div class="form-group">
+                    <select style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: white;">
+                        <option>General Inquiry</option>
+                        <option>Technical Support</option>
+                        <option>Partnership</option>
+                        <option>Feedback</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Live Chat -->
+    <section class="container" style="padding: 4rem 0; text-align: center;">
+        <div style="background: rgba(0, 196, 154, 0.1); border-radius: 20px; padding: 2rem;">
+            <h3 style="color: var(--accent); margin-bottom: 1rem;">
+                <i class="fas fa-comments"></i> LIVE CHAT SUPPORT
+            </h3>
+            <p>Chat with our team in real-time</p>
+            <button onclick="window.open('https://tawk.to/chat', '_blank')" 
+                    style="background: var(--accent); color: white; border: none; padding: 1rem 2rem; border-radius: 50px; margin-top: 1rem; cursor: pointer;">
+                Start Live Chat
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #050913; padding: 4rem 0 2rem; margin-top: 4rem;">
+        <div class="container" style="text-align: center;">
+            <p style="color: #666;">&copy;CAT ENTERTAINMENT SURGE. Contact us anytime.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent. We\'ll respond within 24 hours.');
+            this.reset();
+        });
+
+        // Live Chat Status
+        function updateChatStatus() {
+            const statusElement = document.createElement('p');
+            statusElement.innerHTML = '<i class="fas fa-circle" style="color: #00C49A;"></i> Online - Usually replies instantly';
+            statusElement.style.color = '#00C49A';
+            statusElement.style.marginTop = '1rem';
+            
+            const chatSection = document.querySelector('section:last-of-type div');
+            chatSection.appendChild(statusElement);
+        }
+
+        document.addEventListener('DOMContentLoaded', updateChatStatus);
+    </script>
+</body>
+</html>
