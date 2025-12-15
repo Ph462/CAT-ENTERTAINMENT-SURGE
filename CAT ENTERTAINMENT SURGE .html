@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>CAT ENTERTAINMENT SURGE - The 2025 Frat Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* === UNIVERSAL DEVICE COMPATIBILITY === */
+        /* 1. Reset for all devices */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent; /* Remove mobile tap highlight */
+            -webkit-text-size-adjust: 100%; /* Prevent font scaling on iOS */
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        /* 2. Base variables - adaptable to all screens */
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #00C49A;
+            --dark: #0A0F1C;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-left: env(safe-area-inset-left, 0px);
+            --safe-right: env(safe-area-inset-right, 0px);
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-base: clamp(16px, 2.5vw, 18px); /* Responsive base font */
+        }
+
+        /* 3. Core HTML elements */
+        html {
+            font-size: var(--font-base);
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            overscroll-behavior: none; /* Prevent pull-to-refresh on mobile */
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+            min-height: -webkit-fill-available; /* Mobile viewport fix */
+            width: 100%;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-left: var(--safe-left);
+            padding-right: var(--safe-right);
+        }
+
+        /* 4. Container system - works on all screens */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 max(4vw, 16px); /* Dynamic padding based on screen */
+            margin: 0 auto;
+        }
+
+        /* === TYPOGRAPHY FOR ALL DEVICES === */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem); /* Scales from mobile to desktop */
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 6vw, 2.8rem);
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-top: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: min(100px, 20vw);
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            margin-bottom: 3rem;
+            max-width: min(90vw, 700px);
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 5vw;
+        }
+
+        /* === BUTTONS - TOUCH-FRIENDLY === */
+        .btn {
+            display: inline-block;
+            padding: min(4vw, 18px) min(8vw, 35px); /* Touch-friendly padding */
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: clamp(0.95rem, 3vw, 1rem);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            min-height: 44px; /* Minimum touch target size (WCAG) */
+            min-width: 44px;
+            text-align: center;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation; /* Prevents double-tap zoom */
+        }
+
+        .btn:hover, .btn:active {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover, .btn-outline:active {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        /* === HEADER - RESPONSIVE NAVIGATION === */
+        header {
+            position: fixed;
+            top: var(--safe-top);
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: min(3vw, 20px) 0;
+            transition: var(--transition);
+            background-color: rgba(10, 15, 28, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        header.scrolled {
+            padding: min(2.5vw, 15px) 0;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: clamp(1.3rem, 5vw, 2rem);
+            font-weight: 900;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .logo i {
+            color: var(--primary);
+            margin-right: min(2vw, 10px);
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+        }
+
+        .logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        /* Desktop Navigation */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: min(3vw, 25px);
+        }
+
+        .nav-links li {
+            display: inline-block;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light);
+            background: none;
+            border: none;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: calc(60px + var(--safe-top));
+            left: 0;
+            width: 100%;
+            background: rgba(10, 15, 28, 0.99);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: min(5vw, 30px);
+            display: none;
+            flex-direction: column;
+            z-index: 999;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: calc(100vh - 60px - var(--safe-top));
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav li {
+            margin: 0;
+            width: 100%;
+        }
+
+        .mobile-nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            padding: min(4vw, 18px) min(5vw, 20px);
+            display: block;
+            transition: var(--transition);
+            border-radius: 10px;
+            margin-bottom: 5px;
+            border: 1px solid transparent;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-nav a:hover, .mobile-nav a:active {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 107, 53, 0.3);
+            color: var(--primary);
+            padding-left: min(8vw, 30px);
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh; /* Dynamic viewport height */
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 15, 28, 0.85), rgba(10, 15, 28, 0.9)), 
+                        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll; /* Changed for mobile performance */
+            position: relative;
+            padding-top: calc(60px + var(--safe-top));
+            padding-bottom: var(--safe-bottom);
+        }
+
+        .hero-content {
+            width: 100%;
+            text-align: center;
+            padding: 0 5vw;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 9vw, 4rem);
+            margin-bottom: min(5vw, 25px);
+            line-height: 1.1;
+        }
+
+        .hero h1 .surge {
+            display: block;
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin-top: min(3vw, 15px);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            margin-bottom: min(8vw, 40px);
+            color: rgba(255, 255, 255, 0.9);
+            max-width: min(90vw, 800px);
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 5vw;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: min(4vw, 20px);
+            flex-wrap: wrap;
+            padding: 0 5vw;
+        }
+
+        /* === SECTIONS COMMON STYLES === */
+        section {
+            padding: clamp(3rem, 10vw, 5rem) 0;
+            width: 100%;
+            position: relative;
+        }
+
+        /* === ABOUT SECTION === */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(2rem, 6vw, 3rem);
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-text h3 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: min(4vw, 20px);
+            color: var(--accent);
+        }
+
+        .about-text p {
+            margin-bottom: min(4vw, 20px);
+            font-size: clamp(1rem, 3vw, 1.1rem);
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: min(5vw, 30px);
+        }
+
+        .about-features li {
+            margin-bottom: min(3vw, 15px);
+            display: flex;
+            align-items: flex-start;
+            font-size: clamp(0.95rem, 3vw, 1rem);
+        }
+
+        .about-features i {
+            color: var(--primary);
+            margin-right: min(3vw, 15px);
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: clamp(10px, 3vw, 20px);
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: clamp(10px, 3vw, 20px);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: block;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* === CAT TECH SECTION === */
+        .cat-tech {
+            background: linear-gradient(rgba(10, 15, 28, 0.9), rgba(10, 15, 28, 0.95));
+            position: relative;
+        }
+
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 90vw), 1fr));
+            gap: clamp(1rem, 4vw, 1.5rem);
+            margin-top: clamp(2rem, 6vw, 3rem);
+            width: 100%;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: clamp(10px, 3vw, 15px);
+            padding: clamp(1.5rem, 5vw, 2rem);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(0, 196, 154, 0.3);
+        }
+
+        .tech-icon {
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+
+        .tech-card h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: clamp(0.8rem, 2.5vw, 1rem);
+            color: var(--light);
+        }
+
+        .tech-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        /* === ENTERTAINMENT SECTION === */
+        .entertainment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(300px, 90vw), 1fr));
+            gap: clamp(1rem, 4vw, 1.5rem);
+            margin-top: clamp(2rem, 6vw, 3rem);
+            width: 100%;
+        }
+
+        .entertainment-card {
+            border-radius: clamp(10px, 3vw, 15px);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            height: min(300px, 70vw);
+            width: 100%;
+        }
+
+        .entertainment-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .entertainment-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .entertainment-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: clamp(1rem, 4vw, 1.5rem);
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            color: white;
+        }
+
+        .card-overlay h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: clamp(0.5rem, 1.5vw, 0.8rem);
+        }
+
+        .card-overlay p {
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            opacity: 0.9;
+        }
+
+        /* === SUBSCRIPTION SECTION === */
+        .subscription {
+            background: linear-gradient(135deg, var(--secondary), #001F3F);
+            text-align: center;
+            padding: clamp(3rem, 10vw, 5rem) 5vw;
+        }
+
+        .subscription-form {
+            max-width: min(90vw, 600px);
+            margin: clamp(2rem, 6vw, 3rem) auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem, 3vw, 1.5rem);
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .subscription-form {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .subscription-form input {
+            flex-grow: 1;
+            padding: clamp(1rem, 3vw, 1.2rem) clamp(1.2rem, 4vw, 1.5rem);
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-height: 50px;
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .subscription-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .subscription-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .subscription-features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 3vw, 1.5rem);
+            margin-top: clamp(2rem, 6vw, 3rem);
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: min(2vw, 10px);
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--accent);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        /* === CONTACT SECTION === */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(2rem, 6vw, 3rem);
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .contact-container {
+                grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(1rem, 3vw, 1.5rem);
+        }
+
+        .contact-icon {
+            width: clamp(50px, 12vw, 60px);
+            height: clamp(50px, 12vw, 60px);
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-text p {
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: clamp(1rem, 3vw, 1.2rem) clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            border: none;
+            border-radius: clamp(10px, 3vw, 15px);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-form textarea {
+            min-height: clamp(150px, 40vw, 200px);
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        /* === AI CHATBOT === */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: max(20px, var(--safe-bottom));
+            right: max(15px, var(--safe-right));
+            width: clamp(60px, 15vw, 70px);
+            height: clamp(60px, 15vw, 70px);
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 9999;
+            transition: var(--transition);
+            border: none;
+            padding: 0;
+            min-width: 60px;
+            min-height: 60px;
+            touch-action: manipulation;
+        }
+
+        .chatbot-toggle:hover, .chatbot-toggle:active {
+            transform: scale(1.1);
+        }
+
+        .chatbot-toggle i {
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            color: white;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: max(100px, calc(70px + var(--safe-bottom)));
+            right: max(15px, var(--safe-right));
+            width: min(400px, 90vw);
+            height: min(600px, 70vh);
+            max-height: calc(100vh - 150px);
+            background: white;
+            border-radius: clamp(15px, 4vw, 20px);
+            box-shadow: var(--shadow);
+            z-index: 10000;
+            overflow: hidden;
+            display: none;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .chatbot-header {
+            background: var(--gradient);
+            padding: clamp(1rem, 3vw, 1.2rem);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .chatbot-header h3 {
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-chatbot {
+            background: none;
+            border: none;
+            color: white;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            cursor: pointer;
+            transition: var(--transition);
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            touch-action: manipulation;
+        }
+
+        .close-chatbot:hover {
+            transform: rotate(90deg);
+        }
+
+        .chatbot-frame {
+            width: 100%;
+            height: calc(100% - 60px);
+            border: none;
+            display: block;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: #050913;
+            padding: clamp(3rem, 8vw, 4rem) 0 clamp(1.5rem, 4vw, 2rem);
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(2rem, 5vw, 3rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            }
+        }
+
+        .footer-about, .footer-links, .footer-social {
+            width: 100%;
+        }
+
+        .footer-logo {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links h4,
+        .footer-social h4 {
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            color: var(--accent);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            display: inline-block;
+            padding: 2px 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: clamp(0.8rem, 2.5vw, 1.2rem);
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            width: clamp(45px, 10vw, 50px);
+            height: clamp(45px, 10vw, 50px);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            transition: var(--transition);
+            text-decoration: none;
+            min-width: 45px;
+            min-height: 45px;
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: clamp(1.5rem, 4vw, 2rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            width: 100%;
+        }
+
+        /* === RESPONSIVE BREAKPOINTS === */
+        /* Extra Small Devices (Phones, < 576px) */
+        @media (max-width: 575.98px) {
+            .logo span {
+                display: none; /* Hide full name on very small screens */
+            }
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-btns .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+        }
+
+        /* Small Devices (Phones, 576px and up) */
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+        }
+
+        /* Medium Devices (Tablets, 768px and up) */
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+        }
+
+        /* Large Devices (Desktops, 992px and up) */
+        @media (min-width: 992px) {
+            .mobile-toggle {
+                display: none;
+            }
+            .nav-links {
+                display: flex;
+            }
+            .mobile-nav {
+                display: none !important;
+            }
+        }
+
+        /* Extra Large Devices (Large desktops, 1200px and up) */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+
+        /* Ultra-wide screens */
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1400px;
+            }
+        }
+
+        /* === ACCESSIBILITY & PERFORMANCE === */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #0A0F1C;
+                color: #F8F9FA;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .chatbot-toggle,
+            .chatbot-container,
+            .mobile-toggle,
+            .btn,
+            .subscription-form,
+            .social-icons {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            a {
+                color: black !important;
+                text-decoration: underline;
+            }
+        }
+
+        /* Landscape orientation fixes */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .hero {
+                min-height: 150vh;
+            }
+            .hero-content {
+                padding-top: 30px;
+            }
+        }
+
+        /* High DPI screens */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+
+        /* Samsung Internet specific fixes */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            .hero {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-paw"></i>
+                <span>CAT ENTERTAINMENT SURGE</span>
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks" role="navigation" aria-label="Main navigation">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#cat-tech">CAT TECH</a></li>
+                <li><a href="#entertainment">Entertainment</a></li>
+                <li><a href="#subscription">Subscription</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <ul class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#cat-tech">CAT TECH</a></li>
+            <li><a href="#entertainment">Entertainment</a></li>
+            <li><a href="#subscription">Subscription</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-label="Welcome to CAT ENTERTAINMENT SURGE">
+        <div class="container hero-content">
+            <h1>WELCOME TO <span class="surge">CAT ENTERTAINMENT SURGE</span></h1>
+            <p>The ultimate 2025 frat experience blending cutting-edge technology with non-stop entertainment. Football, music, videos, games, and everything that makes people happy, all in one explosive platform.</p>
+            <div class="hero-btns">
+                <a href="#subscription" class="btn" aria-label="Join The Surge membership">Join The Surge</a>
+                <a href="#entertainment" class="btn btn-outline" aria-label="Explore entertainment content">Explore Content</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" aria-labelledby="about-title">
+        <div class="container">
+            <h2 class="section-title" id="about-title">About CES</h2>
+            <p class="section-subtitle">Discover the revolution in entertainment technology that's taking 2025 by storm</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Redefining Entertainment Since 2025</h3>
+                    <p>CAT ENTERTAINMENT SURGE (CES) is not just another platform—it's a cultural movement. Born from the vibrant energy of college campuses and the relentless innovation of tech visionaries, we've created a space where technology meets pure, unadulterated fun.</p>
+                    <p>Our mission is simple: to deliver happiness through seamless integration of sports, music, gaming, and social connection. We leverage cutting-edge AI and immersive technologies to create experiences that resonate with the heartbeat of Generation Z and beyond.</p>
+                    
+                    <ul class="about-features" role="list">
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <span>Next-generation entertainment platform</span></li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <span>AI-powered personalized experiences</span></li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <span>Real-time sports and music integration</span></li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <span>Community-driven content creation</span></li>
+                    </ul>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="CES Team collaborating in modern office" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAT TECH Section -->
+    <section id="cat-tech" class="cat-tech" aria-labelledby="cat-tech-title">
+        <div class="container">
+            <h2 class="section-title" id="cat-tech-title">CAT TECH</h2>
+            <p class="section-subtitle">Our proprietary technology stack that powers the ultimate entertainment experience</p>
+            
+            <div class="tech-categories" role="list">
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-futbol" aria-hidden="true"></i>
+                    </div>
+                    <h3>Football Hub</h3>
+                    <p>Live matches, stats, fantasy leagues, and immersive VR experiences. Never miss a moment of the action with our real-time streaming and interactive features.</p>
+                </div>
+                
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-music" aria-hidden="true"></i>
+                    </div>
+                    <h3>Music Surge</h3>
+                    <p>Curated playlists, live concerts, artist exclusives, and AI-generated beats. Your personal soundtrack for every moment, mood, and occasion.</p>
+                </div>
+                
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-video" aria-hidden="true"></i>
+                    </div>
+                    <h3>Video & Photos</h3>
+                    <p>Short-form content, documentaries, user-generated media, and AI-enhanced editing tools. Create and consume visual stories like never before.</p>
+                </div>
+                
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-gamepad" aria-hidden="true"></i>
+                    </div>
+                    <h3>Gaming Arena</h3>
+                    <p>Cloud gaming, esports tournaments, indie showcases, and social gaming experiences. Play, compete, and connect in our virtual playgrounds.</p>
+                </div>
+                
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-happy" aria-hidden="true"></i>
+                    </div>
+                    <h3>Happiness Engine</h3>
+                    <p>AI-driven mood detection and content recommendation system that learns what makes you smile and delivers more of it, exactly when you need it.</p>
+                </div>
+                
+                <div class="tech-card" role="listitem">
+                    <div class="tech-icon">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                    </div>
+                    <h3>Social Fusion</h3>
+                    <p>Integrated social features, group watch parties, collaborative playlists, and community challenges. Entertainment is better together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entertainment Section -->
+    <section id="entertainment" aria-labelledby="entertainment-title">
+        <div class="container">
+            <h2 class="section-title" id="entertainment-title">Entertainment Hub</h2>
+            <p class="section-subtitle">Your daily dose of happiness across all media formats</p>
+            
+            <div class="entertainment-grid" role="list">
+                <div class="entertainment-card" role="listitem">
+                    <img src="https://images.unsplash.com/photo-1598880940080-ff9a29891b85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Live Football Match with excited crowd" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Live Sports</h3>
+                        <p>Premier League, Champions League, and exclusive college tournaments</p>
+                    </div>
+                </div>
+                
+                <div class="entertainment-card" role="listitem">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Music concert with light effects" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Concerts & Festivals</h3>
+                        <p>Front row access to the hottest music events worldwide</p>
+                    </div>
+                </div>
+                
+                <div class="entertainment-card" role="listitem">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Gaming tournament with professional players" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Esports Battles</h3>
+                        <p>Watch pros compete or join the action yourself</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Section -->
+    <section id="subscription" class="subscription" aria-labelledby="subscription-title">
+        <div class="container">
+            <h2 class="section-title" id="subscription-title">Join The Surge</h2>
+            <p class="section-subtitle">Become a member and unlock the full CES experience. Limited 2025 founding memberships available!</p>
+            
+            <div class="subscription-form" role="form" aria-label="Subscription form">
+                <input type="email" placeholder="Enter your best email address" id="subscribeEmail" aria-label="Email address for subscription" required>
+                <button class="btn" onclick="subscribe()" aria-label="Get early access">Get Early Access</button>
+            </div>
+            
+            <div class="subscription-features" role="list">
+                <div class="feature" role="listitem">
+                    <i class="fas fa-crown" aria-hidden="true"></i>
+                    <span>Founding Member Benefits</span>
+                </div>
+                <div class="feature" role="listitem">
+                    <i class="fas fa-unlock" aria-hidden="true"></i>
+                    <span>All Content Unlocked</span>
+                </div>
+                <div class="feature" role="listitem">
+                    <i class="fas fa-robot" aria-hidden="true"></i>
+                    <span>Premium AI Assistant</span>
+                </div>
+                <div class="feature" role="listitem">
+                    <i class="fas fa-ticket-alt" aria-hidden="true"></i>
+                    <span>Exclusive Event Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-labelledby="contact-title">
+        <div class="container">
+            <h2 class="section-title" id="contact-title">Contact Us</h2>
+            <p class="section-subtitle">Got questions, ideas, or want to collaborate? Reach out to the CES team</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item" role="listitem">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Visit Our HQ</h3>
+                            <p>Innovation District, Tech Valley<br>San Francisco, CA 94107</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" role="listitem">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Call Us</h3>
+                            <p>+1 (555) CES-2025<br>Mon-Fri, 9AM-6PM PST</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" role="listitem">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Us</h3>
+                            <p>hello@catentertainmentsurge.com<br>partners@catentertainmentsurge.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form" role="form" aria-label="Contact form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" aria-label="Your name" required>
+                        <input type="email" placeholder="Your Email" aria-label="Your email" required>
+                        <input type="text" placeholder="Subject" aria-label="Message subject">
+                        <textarea placeholder="Your Message" aria-label="Your message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI chatbot assistant">
+        <i class="fas fa-robot" aria-hidden="true"></i>
+    </button>
+    
+    <div class="chatbot-container" id="chatbotContainer" role="dialog" aria-label="AI chatbot assistant">
+        <div class="chatbot-header">
+            <h3><i class="fas fa-robot" aria-hidden="true"></i> CES Assistant</h3>
+            <button class="close-chatbot" id="closeChatbot" aria-label="Close chatbot">&times;</button>
+        </div>
+        <iframe class="chatbot-frame" src="https://landbot.site/v3/H-3273997-X6DP6ZM8DSCBYYDN/index.html" title="CAT PHOENIX AI Assistant" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-paw" aria-hidden="true"></i> CAT ENTERTAINMENT SURGE
+                    </div>
+                    <p>The ultimate fusion of technology and entertainment, creating happiness experiences for the 2025 generation and beyond.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul role="list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About CES</a></li>
+                        <li><a href="#cat-tech">CAT TECH</a></li>
+                        <li><a href="#entertainment">Entertainment</a></li>
+                        <li><a href="#subscription">Subscription</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Follow The Surge</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Follow us on TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Join our Discord community"><i class="fab fa-discord" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Subscribe on YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    </div>
+                    <p style="margin-top: 20px;">#CETSURGE2025</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 CAT ENTERTAINMENT SURGE. All rights reserved. | The Future of Entertainment Starts Here</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const navLinks = document.querySelectorAll('.mobile-nav a');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            mobileToggle.innerHTML = mobileNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+            mobileToggle.setAttribute('aria-expanded', mobileNav.classList.contains('active'));
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileNav.contains(e.target) && !mobileToggle.contains(e.target) && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Chatbot Toggle
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChatbot = document.getElementById('closeChatbot');
+        
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.style.display = 'block';
+            setTimeout(() => {
+                chatbotContainer.style.opacity = '1';
+                chatbotContainer.style.transform = 'translateY(0)';
+            }, 10);
+            chatbotContainer.setAttribute('aria-hidden', 'false');
+            chatbotToggle.setAttribute('aria-expanded', 'true');
+        });
+        
+        closeChatbot.addEventListener('click', () => {
+            chatbotContainer.style.opacity = '0';
+            chatbotContainer.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                chatbotContainer.style.display = 'none';
+            }, 300);
+            chatbotContainer.setAttribute('aria-hidden', 'true');
+            chatbotToggle.setAttribute('aria-expanded', 'false');
+        });
+        
+        // Close chatbot when clicking outside (on mobile)
+        document.addEventListener('touchstart', (e) => {
+            if (chatbotContainer.style.display === 'block' && 
+                !chatbotContainer.contains(e.target) && 
+                !chatbotToggle.contains(e.target) &&
+                window.innerWidth <= 768) {
+                chatbotContainer.style.opacity = '0';
+                chatbotContainer.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    chatbotContainer.style.display = 'none';
+                }, 300);
+                chatbotContainer.setAttribute('aria-hidden', 'true');
+                chatbotToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Subscription Function
+        function subscribe() {
+            const emailInput = document.getElementById('subscribeEmail');
+            const email = emailInput.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && emailPattern.test(email)) {
+                alert(`Thank you! Welcome to the CAT ENTERTAINMENT SURGE. Early access details have been sent to ${email}.`);
+                emailInput.value = '';
+                emailInput.blur();
+            } else {
+                alert('Please enter a valid email address.');
+                emailInput.focus();
+            }
+        }
+        
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputs = this.querySelectorAll('input, textarea');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (input.hasAttribute('required') && !input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = 'var(--primary)';
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+            
+            if (isValid) {
+                alert('Thank you for your message! The CES team will get back to you within 24 hours.');
+                this.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without jumping
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
+        
+        // Handle initial scroll position for anchor links
+        window.addEventListener('load', () => {
+            if (window.location.hash) {
+                setTimeout(() => {
+                    const targetElement = document.querySelector(window.location.hash);
+                    if (targetElement) {
+                        const headerHeight = document.getElementById('header').offsetHeight;
+                        window.scrollTo(0, targetElement.offsetTop - headerHeight);
+                    }
+                }, 100);
+            }
+        });
+        
+        // Touch device detection for hover effects
+        let isTouchDevice = false;
+        try {
+            document.createEvent('TouchEvent');
+            isTouchDevice = true;
+        } catch (e) {
+            isTouchDevice = false;
+        }
+        
+        if (isTouchDevice) {
+            document.body.classList.add('touch-device');
+        }
+        
+        // Performance optimization: Lazy load images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        }
+        
+        // Handle keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (chatbotContainer.style.display === 'block') {
+                    chatbotContainer.style.opacity = '0';
+                    chatbotContainer.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        chatbotContainer.style.display = 'none';
+                    }, 300);
+                    chatbotContainer.setAttribute('aria-hidden', 'true');
+                    chatbotToggle.setAttribute('aria-expanded', 'false');
+                }
+                
+                if (mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+        
+        // Handle orientation change
+        let portrait = window.matchMedia("(orientation: portrait)");
+        portrait.addListener(function(mql) {
+            if(mql.matches) {
+                // Portrait mode
+                document.body.classList.remove('landscape');
+                document.body.classList.add('portrait');
+            } else {
+                // Landscape mode
+                document.body.classList.remove('portrait');
+                document.body.classList.add('landscape');
+            }
+        });
+        
+        // Initial orientation check
+        if (window.innerHeight > window.innerWidth) {
+            document.body.classList.add('portrait');
+        } else {
+            document.body.classList.add('landscape');
+        }
+    </script>
+</body>
+</html>
