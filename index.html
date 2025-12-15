@@ -6,6 +6,15 @@
     <title>CAT ENTERTAINMENT SURGE - The 2025 Frat Experience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <!-- Add to your existing head section -->
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+  // Initialize Supabase
+  const supabaseUrl = 'https://bwvihhyxvmnagmdkaofg.supabase.co'
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3dmloaHl4dm1uYWdtZGthb2ZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4MDQwMDMsImV4cCI6MjA4MTM4MDAwM30.Ed6Uvr3TmAHdfS-aB4ViGKc2UukJ0_xhcvK-h2XdLYo I'
+  const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
+</script>
+</script>
     <style>
         /* === UNIVERSAL DEVICE COMPATIBILITY === */
         /* 1. Reset for all devices */
@@ -19,6 +28,378 @@
             -ms-text-size-adjust: 100%;
         }
 
+        /* ===== AUTHENTICATION STYLES ===== */
+:root {
+    --ces-primary: #8B5CF6;
+    --ces-secondary: #10B981;
+    --ces-accent: #3B82F6;
+    --ces-dark: #0F0F23;
+    --ces-card: #1A1A2E;
+    --ces-border: #2D2D44;
+    --ces-text: #F8FAFC;
+    --ces-text-secondary: #94A3B8;
+}
+
+/* Auth Container */
+.ces-auth-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 35, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: cesFadeIn 0.3s ease;
+}
+
+.ces-auth-box {
+    background: var(--ces-card);
+    border: 1px solid var(--ces-border);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 420px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    transform: translateY(20px);
+    animation: cesSlideUp 0.4s ease 0.1s forwards;
+}
+
+/* Auth Header */
+.ces-auth-header {
+    background: linear-gradient(135deg, var(--ces-primary), var(--ces-accent));
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ces-auth-header::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+}
+
+.ces-auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
+}
+
+.ces-auth-logo i {
+    color: #FFD700;
+    animation: cesPulse 2s infinite;
+}
+
+.ces-auth-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Auth Tabs */
+.ces-auth-tabs {
+    display: flex;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.ces-auth-tab {
+    flex: 1;
+    padding: 18px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.ces-auth-tab.active {
+    color: white;
+}
+
+.ces-auth-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--ces-secondary);
+    border-radius: 3px;
+}
+
+/* Auth Forms */
+.ces-auth-body {
+    padding: 30px;
+}
+
+.ces-auth-form {
+    display: none;
+}
+
+.ces-auth-form.active {
+    display: block;
+}
+
+.ces-input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.ces-input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--ces-border);
+    border-radius: 12px;
+    color: var(--ces-text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.ces-input-group input:focus {
+    outline: none;
+    border-color: var(--ces-primary);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.ces-input-label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ces-text-secondary);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.ces-input-group input:focus + .ces-input-label,
+.ces-input-group input:not(:placeholder-shown) + .ces-input-label {
+    top: 10px;
+    font-size: 0.85rem;
+    color: var(--ces-primary);
+}
+
+/* Auth Buttons */
+.ces-auth-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--ces-primary), var(--ces-accent));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.ces-auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+}
+
+.ces-auth-btn:active {
+    transform: translateY(0);
+}
+
+.ces-auth-footer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid var(--ces-border);
+    color: var(--ces-text-secondary);
+    font-size: 0.9rem;
+}
+
+.ces-auth-footer a {
+    color: var(--ces-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* User Profile */
+.ces-user-profile {
+    display: none;
+    position: relative;
+}
+
+.ces-user-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 1px solid var(--ces-border);
+}
+
+.ces-user-avatar {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--ces-primary), var(--ces-accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.ces-user-info h4 {
+    margin: 0 0 5px 0;
+    color: var(--ces-text);
+}
+
+.ces-user-info span {
+    color: var(--ces-text-secondary);
+    font-size: 0.9rem;
+}
+
+.ces-user-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.ces-stat {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+}
+
+.ces-stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ces-primary);
+    margin-bottom: 5px;
+}
+
+.ces-stat-label {
+    font-size: 0.8rem;
+    color: var(--ces-text-secondary);
+}
+
+.ces-user-actions {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ces-user-btn {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--ces-border);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--ces-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.ces-user-btn:hover {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: var(--ces-primary);
+}
+
+/* Animations */
+@keyframes cesFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes cesSlideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes cesPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Close Button */
+.ces-auth-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.ces-auth-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .ces-auth-box {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .ces-auth-header {
+        padding: 25px 20px;
+    }
+    
+    .ces-auth-body {
+        padding: 20px;
+    }
+    
+    .ces-user-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Loading State */
+.ces-loading {
+    animation: cesSpin 1s linear infinite;
+}
+
+@keyframes cesSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+        
         /* 2. Base variables - adaptable to all screens */
         :root {
             --primary: #FF6B35;
@@ -42,7 +423,7 @@
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --font-base: clamp(16px, 2.5vw, 18px);
         }
-
+ 
         /* 3. Core HTML elements */
         html {
             font-size: var(--font-base);
@@ -1855,6 +2236,132 @@
     </style>
 </head>
 <body>
+    
+    <!-- ===== AUTHENTICATION MODAL ===== -->
+<div id="cesAuthModal" class="ces-auth-container">
+    <div class="ces-auth-box">
+        <button class="ces-auth-close" onclick="cesCloseAuth()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="ces-auth-header">
+            <div class="ces-auth-logo">
+                <i class="fas fa-bolt"></i>
+                <span>CAT ENTERTAINMENT SURGE</span>
+            </div>
+            <p class="ces-auth-subtitle">Next-Gen 2025 Experience</p>
+        </div>
+        
+        <!-- Login/Signup Section -->
+        <div id="cesAuthSection">
+            <div class="ces-auth-tabs">
+                <button class="ces-auth-tab active" onclick="cesSwitchTab('login')">LOGIN</button>
+                <button class="ces-auth-tab" onclick="cesSwitchTab('signup')">SIGN UP</button>
+            </div>
+            
+            <div class="ces-auth-body">
+                <!-- Login Form -->
+                <form id="cesLoginForm" class="ces-auth-form active" onsubmit="event.preventDefault(); cesSignIn()">
+                    <div class="ces-input-group">
+                        <input type="email" id="cesLoginEmail" placeholder=" " required>
+                        <label class="ces-input-label">Email Address</label>
+                    </div>
+                    
+                    <div class="ces-input-group">
+                        <input type="password" id="cesLoginPassword" placeholder=" " required>
+                        <label class="ces-input-label">Password</label>
+                    </div>
+                    
+                    <button type="submit" class="ces-auth-btn" id="cesLoginBtn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>ACCESS PLATFORM</span>
+                    </button>
+                    
+                    <div class="ces-auth-footer">
+                        <a href="#" onclick="cesShowReset()">Forgot password?</a>
+                    </div>
+                </form>
+                
+                <!-- Signup Form -->
+                <form id="cesSignupForm" class="ces-auth-form" onsubmit="event.preventDefault(); cesSignUp()">
+                    <div class="ces-input-group">
+                        <input type="text" id="cesSignupName" placeholder=" " required>
+                        <label class="ces-input-label">Full Name</label>
+                    </div>
+                    
+                    <div class="ces-input-group">
+                        <input type="email" id="cesSignupEmail" placeholder=" " required>
+                        <label class="ces-input-label">Email Address</label>
+                    </div>
+                    
+                    <div class="ces-input-group">
+                        <input type="password" id="cesSignupPassword" placeholder=" " required>
+                        <label class="ces-input-label">Password</label>
+                    </div>
+                    
+                    <div class="ces-input-group">
+                        <input type="password" id="cesSignupConfirm" placeholder=" " required>
+                        <label class="ces-input-label">Confirm Password</label>
+                    </div>
+                    
+                    <button type="submit" class="ces-auth-btn" id="cesSignupBtn">
+                        <i class="fas fa-user-plus"></i>
+                        <span>JOIN THE SURGE</span>
+                    </button>
+                    
+                    <div class="ces-auth-footer">
+                        By joining, you agree to our <a href="#">Terms</a> & <a href="#">Privacy</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- User Profile Section -->
+        <div id="cesUserProfile" class="ces-user-profile">
+            <div class="ces-user-header">
+                <div class="ces-user-avatar" id="cesAvatar">
+                    <span id="cesAvatarLetter">U</span>
+                </div>
+                <div class="ces-user-info">
+                    <h4 id="cesUserName">User Name</h4>
+                    <span id="cesUserEmail">user@example.com</span>
+                </div>
+            </div>
+            
+            <div class="ces-user-stats">
+                <div class="ces-stat">
+                    <span class="ces-stat-value" id="cesUserTier">BASIC</span>
+                    <span class="ces-stat-label">TIER</span>
+                </div>
+                <div class="ces-stat">
+                    <span class="ces-stat-value" id="cesUserEvents">0</span>
+                    <span class="ces-stat-label">EVENTS</span>
+                </div>
+                <div class="ces-stat">
+                    <span class="ces-stat-value" id="cesUserSince">2025</span>
+                    <span class="ces-stat-label">MEMBER</span>
+                </div>
+            </div>
+            
+            <div class="ces-user-actions">
+                <button class="ces-user-btn" onclick="cesGoDashboard()">
+                    <i class="fas fa-rocket"></i>
+                    LAUNCH DASHBOARD
+                </button>
+                <button class="ces-user-btn" onclick="cesSignOut()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    SIGN OUT
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== AUTH BUTTON FOR YOUR NAVBAR ===== -->
+<!-- Add this button to your existing navigation bar -->
+<div id="cesAuthButton" style="display: inline-block;">
+    <!-- This will auto-update based on auth state -->
+</div>
     <!-- Loading Animation -->
     <div class="loading" id="loading">
         <div class="loader"></div>
@@ -2757,7 +3264,27 @@
                 }, 100);
             }
         });
-        
+
+        // Update active events count in real-time
+async function updateEventCount() {
+  const { count, error } = await supabase
+    .from('events')
+    .select('*', { count: 'exact', head: true })
+    .eq('is_live', true);
+  
+  if (!error) {
+    document.querySelector('.event-counter').textContent = `${count} Active Events`;
+  }
+}
+
+// Subscribe to event changes
+supabase
+  .channel('events-channel')
+  .on('postgres_changes', 
+    { event: '*', schema: 'public', table: 'events' }, 
+    updateEventCount
+  )
+  .subscribe();
         // Shake animation for errors
         const style = document.createElement('style');
         style.textContent = `
@@ -2768,7 +3295,34 @@
             }
         `;
         document.head.appendChild(style);
-        
+
+        async function subscribeToPlan(planType) {
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    alert('Please login first!');
+    return;
+  }
+  
+  // In production, integrate with payment gateway here
+  const subscriptionData = {
+    user_id: user.id,
+    plan_type: planType,
+    expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 days
+  };
+  
+  const { error } = await supabase.from('subscriptions').insert(subscriptionData);
+  
+  if (!error) {
+    // Update user's subscription tier
+    await supabase
+      .from('users')
+      .update({ subscription_tier: planType })
+      .eq('id', user.id);
+    
+    alert(`Successfully subscribed to ${planType} plan!`);
+  }
+}
         // Theme toggle (dark/light mode)
         const themeToggle = document.createElement('button');
         themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
@@ -2903,6 +3457,388 @@
                 closePaymentModal();
             }
         });
+
+        <script>
+// ===== CES AUTHENTICATION MODULE =====
+// Initialize Supabase (Update with your credentials)
+const CES_SUPABASE_URL = 'https://your-project.supabase.co';
+const CES_SUPABASE_KEY = 'your-anon-key';
+let cesSupabase = null;
+
+// Initialize when document loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Supabase if credentials are set
+    if (CES_SUPABASE_URL.includes('your-project') === false) {
+        cesSupabase = window.supabase.createClient(CES_SUPABASE_URL, CES_SUPABASE_KEY);
+    }
+    
+    // Initialize auth button and check session
+    cesInitAuthButton();
+    cesCheckSession();
+});
+
+// ===== UI MANAGEMENT =====
+function cesInitAuthButton() {
+    const authButton = document.getElementById('cesAuthButton');
+    if (!authButton) return;
+    
+    authButton.innerHTML = `
+        <button onclick="cesOpenAuth()" style="
+            background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        ">
+            <i class="fas fa-user"></i>
+            <span>JOIN CES</span>
+        </button>
+    `;
+}
+
+function cesOpenAuth() {
+    const modal = document.getElementById('cesAuthModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+}
+
+function cesCloseAuth() {
+    const modal = document.getElementById('cesAuthModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function cesSwitchTab(tab) {
+    // Update active tab
+    document.querySelectorAll('.ces-auth-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.ces-auth-form').forEach(f => f.classList.remove('active'));
+    
+    if (tab === 'login') {
+        document.querySelector('.ces-auth-tab:nth-child(1)').classList.add('active');
+        document.getElementById('cesLoginForm').classList.add('active');
+    } else {
+        document.querySelector('.ces-auth-tab:nth-child(2)').classList.add('active');
+        document.getElementById('cesSignupForm').classList.add('active');
+    }
+}
+
+// ===== AUTHENTICATION FUNCTIONS =====
+async function cesCheckSession() {
+    if (!cesSupabase) return;
+    
+    const { data: { user } } = await cesSupabase.auth.getUser();
+    if (user) {
+        cesUpdateUIForUser(user);
+    }
+}
+
+async function cesSignUp() {
+    if (!cesSupabase) {
+        cesShowNotification('Supabase not configured', 'error');
+        return;
+    }
+    
+    const name = document.getElementById('cesSignupName').value;
+    const email = document.getElementById('cesSignupEmail').value;
+    const password = document.getElementById('cesSignupPassword').value;
+    const confirm = document.getElementById('cesSignupConfirm').value;
+    
+    // Validation
+    if (password !== confirm) {
+        cesShowNotification('Passwords do not match', 'error');
+        return;
+    }
+    
+    // Show loading
+    const btn = document.getElementById('cesSignupBtn');
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner ces-loading"></i> CREATING ACCOUNT...';
+    btn.disabled = true;
+    
+    try {
+        const { data, error } = await cesSupabase.auth.signUp({
+            email: email,
+            password: password,
+        });
+        
+        if (error) throw error;
+        
+        // Create user profile
+        await cesSupabase.from('users').insert({
+            id: data.user.id,
+            username: name || email.split('@')[0],
+            full_name: name,
+            subscription_tier: 'basic',
+            created_at: new Date()
+        });
+        
+        cesShowNotification('🎉 Welcome to CES! Check your email', 'success');
+        
+        // Auto login after signup
+        setTimeout(() => cesSignIn(email, password), 1000);
+        
+    } catch (error) {
+        cesShowNotification(error.message, 'error');
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+    }
+}
+
+async function cesSignIn(email, password) {
+    if (!cesSupabase) {
+        cesShowNotification('Supabase not configured', 'error');
+        return;
+    }
+    
+    const loginEmail = email || document.getElementById('cesLoginEmail').value;
+    const loginPassword = password || document.getElementById('cesLoginPassword').value;
+    
+    // Show loading
+    const btn = document.getElementById('cesLoginBtn');
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner ces-loading"></i> ACCESSING...';
+    btn.disabled = true;
+    
+    try {
+        const { data, error } = await cesSupabase.auth.signInWithPassword({
+            email: loginEmail,
+            password: loginPassword
+        });
+        
+        if (error) throw error;
+        
+        cesShowNotification('🚀 Welcome back to CES!', 'success');
+        cesUpdateUIForUser(data.user);
+        cesCloseAuth();
+        
+    } catch (error) {
+        cesShowNotification(error.message, 'error');
+    } finally {
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+    }
+}
+
+function cesUpdateUIForUser(user) {
+    // Update auth button
+    const authButton = document.getElementById('cesAuthButton');
+    if (authButton) {
+        const username = user.email.split('@')[0];
+        authButton.innerHTML = `
+            <button onclick="cesShowUserProfile()" style="
+                background: rgba(139, 92, 246, 0.1);
+                border: 1px solid #8B5CF6;
+                padding: 10px 20px;
+                border-radius: 10px;
+                color: #8B5CF6;
+                font-weight: 600;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s ease;
+                font-size: 0.9rem;
+            ">
+                <i class="fas fa-user-check"></i>
+                <span>${username.toUpperCase()}</span>
+            </button>
+        `;
+    }
+    
+    // Update profile modal
+    document.getElementById('cesAuthSection').style.display = 'none';
+    document.getElementById('cesUserProfile').style.display = 'block';
+    
+    // Set user info
+    document.getElementById('cesUserName').textContent = user.email.split('@')[0];
+    document.getElementById('cesUserEmail').textContent = user.email;
+    document.getElementById('cesAvatarLetter').textContent = user.email.charAt(0).toUpperCase();
+    
+    // Fetch additional user data
+    cesFetchUserData(user.id);
+}
+
+async function cesFetchUserData(userId) {
+    if (!cesSupabase) return;
+    
+    try {
+        const { data: userData } = await cesSupabase
+            .from('users')
+            .select('*')
+            .eq('id', userId)
+            .single();
+        
+        if (userData) {
+            document.getElementById('cesUserTier').textContent = 
+                userData.subscription_tier?.toUpperCase() || 'BASIC';
+            
+            const joinDate = new Date(userData.created_at || new Date());
+            document.getElementById('cesUserSince').textContent = joinDate.getFullYear();
+        }
+        
+        // Fetch events count
+        const { count } = await cesSupabase
+            .from('events')
+            .select('*', { count: 'exact' })
+            .eq('is_live', true);
+        
+        document.getElementById('cesUserEvents').textContent = count || '0';
+        
+    } catch (error) {
+        console.error('Error fetching user data:', error);
+    }
+}
+
+function cesShowUserProfile() {
+    cesOpenAuth();
+    document.getElementById('cesAuthSection').style.display = 'none';
+    document.getElementById('cesUserProfile').style.display = 'block';
+}
+
+async function cesSignOut() {
+    if (!cesSupabase) return;
+    
+    try {
+        await cesSupabase.auth.signOut();
+        cesShowNotification('Signed out successfully', 'info');
+        
+        // Reset UI
+        document.getElementById('cesAuthSection').style.display = 'block';
+        document.getElementById('cesUserProfile').style.display = 'none';
+        cesInitAuthButton();
+        cesCloseAuth();
+        
+    } catch (error) {
+        cesShowNotification(error.message, 'error');
+    }
+}
+
+function cesGoDashboard() {
+    cesShowNotification('🚀 Launching CES Dashboard...', 'info');
+    // Redirect to dashboard (update URL as needed)
+    setTimeout(() => window.location.href = '#', 1000);
+}
+
+function cesShowReset() {
+    const email = document.getElementById('cesLoginEmail').value || prompt('Enter your email:');
+    if (email) {
+        cesSupabase.auth.resetPasswordForEmail(email)
+            .then(() => cesShowNotification('Password reset email sent!', 'success'))
+            .catch(err => cesShowNotification(err.message, 'error'));
+    }
+}
+
+// ===== NOTIFICATION SYSTEM =====
+function cesShowNotification(message, type = 'info') {
+    // Remove existing notification
+    const existing = document.querySelector('.ces-notification');
+    if (existing) existing.remove();
+    
+    // Create notification
+    const notification = document.createElement('div');
+    notification.className = `ces-notification ces-notification-${type}`;
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : 
+                         type === 'error' ? 'exclamation-circle' : 
+                         type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+        <span>${message}</span>
+    `;
+    
+    // Add styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        background: ${type === 'success' ? '#10B981' : 
+                     type === 'error' ? '#EF4444' : 
+                     type === 'warning' ? '#F59E0B' : '#3B82F6'};
+        color: white;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 10000;
+        animation: cesSlideIn 0.3s ease;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        max-width: 400px;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto-remove after 4 seconds
+    setTimeout(() => {
+        notification.style.animation = 'cesSlideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 4000);
+    
+    // Add animation keyframes if not already present
+    if (!document.querySelector('#cesNotificationStyles')) {
+        const style = document.createElement('style');
+        style.id = 'cesNotificationStyles';
+        style.textContent = `
+            @keyframes cesSlideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes cesSlideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// ===== INTEGRATION HELPERS =====
+// Call this function when you want to show login status
+function cesGetCurrentUser() {
+    return cesSupabase?.auth.getUser();
+}
+
+// Check if user is logged in
+function cesIsLoggedIn() {
+    return cesSupabase?.auth.getSession().then(session => !!session?.data?.session);
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('cesAuthModal');
+    if (modal && modal.style.display === 'flex') {
+        if (event.target === modal) {
+            cesCloseAuth();
+        }
+    }
+});
+
+// Press ESC to close modal
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        cesCloseAuth();
+    }
+});
+
+// Make functions globally available
+window.cesOpenAuth = cesOpenAuth;
+window.cesCloseAuth = cesCloseAuth;
+window.cesSwitchTab = cesSwitchTab;
+window.cesSignUp = cesSignUp;
+window.cesSignIn = cesSignIn;
+window.cesSignOut = cesSignOut;
+window.cesShowUserProfile = cesShowUserProfile;
+window.cesGoDashboard = cesGoDashboard;
+window.cesShowReset = cesShowReset;
 
         // Device detection and optimization
         function detectDevice() {
